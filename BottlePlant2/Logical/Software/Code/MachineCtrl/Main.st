@@ -55,6 +55,7 @@ PROGRAM _CYCLIC
 			END_IF;
 		STATE_MAIN_MACHINE:
 			//brmfmod()
+			///
 			MachineAxesPosition.Tasma:=posT;
 			MachineAxesPosition.Wozek:=posW;
 			MachineAxesPosition.Nalewak:=posN;
