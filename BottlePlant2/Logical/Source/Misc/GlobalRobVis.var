@@ -1,0 +1,5 @@
+VAR
+	diButelka : BOOL;
+	AdrAxesPositions : UDINT;
+	cntButelki : UDINT;
+END_VAR

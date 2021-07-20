@@ -1,0 +1,11 @@
+VAR
+	cmdTestModelMovements : BOOL;
+	RobVisData : RobVisPosType;
+	ModelConfig : ModelConfigType;
+	i : INT;
+	diButelkaOld : BOOL;
+	TasmaAxisPosition : REAL;
+	WozekAxisPosition : REAL;
+	NalewakAxisPosition : REAL;
+	pAxesPositions : REFERENCE TO AxesPositionsType;
+END_VAR

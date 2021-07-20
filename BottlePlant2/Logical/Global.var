@@ -1,0 +1,7 @@
+VAR
+	gTranAxis : ACP10AXIS_typ;
+	gCartAxis : ACP10AXIS_typ;
+	gPourAxis : ACP10AXIS_typ;
+	gControlType : BOOL;
+	gAxes : gAxesCtrlType;
+END_VAR

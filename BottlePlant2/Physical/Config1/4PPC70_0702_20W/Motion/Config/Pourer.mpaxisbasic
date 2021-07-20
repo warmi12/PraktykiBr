@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gPourAxisCfg" Type="mpaxisbasic">
+    <Selector ID="AxisConfiguration" Value="AxisWithConfiguration">
+      <Group ID="Axis">
+        <Property ID="BaseType" Value="4" />
+      </Group>
+      <Group ID="Drive">
+        <Group ID="Controller">
+          <Group ID="LoopFilters">
+            <Selector ID="[0]" />
+            <Selector ID="[1]" />
+            <Selector ID="[2]" />
+          </Group>
+        </Group>
+      </Group>
+    </Selector>
+  </Element>
+</Configuration>

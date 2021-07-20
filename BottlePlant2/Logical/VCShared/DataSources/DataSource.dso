@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<DataSource xmlns="http://br-automation.co.at/AS/VC/Project" Name="DataSource">
+  <Property Name="AutoRefresh" Value="False"/>
+  <Property Name="DefaultUpdateTime" Value="200"/>
+  <Property Name="Description" Value=""/>
+  <Property Name="IsIntern" Value="False"/>
+  <Property Name="TextGroup" Value="None"/>
+  <DataPoints>
+    <Folder Name="Software">
+      <Property Name="Description" Value=""/>
+      <Property Name="FolderType" Value="Package"/>
+      <Folder Name="Code">
+        <Property Name="Description" Value=""/>
+        <Property Name="FolderType" Value="Package"/>
+        <Folder Name="MachineCtrl">
+          <Property Name="Description" Value=""/>
+          <Property Name="FolderType" Value="Program"/>
+          <Folder Name="Machine">
+            <Property Name="Description" Value=""/>
+            <Property Name="FolderType" Value="Struct"/>
+            <Folder Name="GUI">
+              <Property Name="Description" Value=""/>
+              <Property Name="FolderType" Value="Struct"/>
+              <DataPoint Name="uiShowLayer">
+                <Property Name="ConnectedBySharedResource" Value="False"/>
+                <Property Name="Description" Value=""/>
+                <Property Name="PLCType" Value="INT[0..5]"/>
+                <Property Name="UpdateTime" Value="Default"/>
+                <Property Name="UserID" Value="None"/>
+                <Property Name="VCType" Value="INTEGER[]"/>
+                <DataPoint Name="uiShowLayer[0]">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="Software\HMI\Visu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="INT"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="INTEGER"/>
+                </DataPoint>
+              </DataPoint>
+            </Folder>
+          </Folder>
+          <DataPoint Name="ShowHommingButton">
+            <Property Name="ConnectedBySharedResource" Value="False"/>
+            <Property Name="ConnectingVisus" Value="Software\HMI\Visu"/>
+            <Property Name="Description" Value=""/>
+            <Property Name="PLCType" Value="INT"/>
+            <Property Name="UpdateTime" Value="Default"/>
+            <Property Name="UserID" Value="None"/>
+            <Property Name="VCType" Value="INTEGER"/>
+          </DataPoint>
+        </Folder>
+      </Folder>
+    </Folder>
+    <Folder Name="gAxes">
+      <Property Name="Description" Value=""/>
+      <Property Name="FolderType" Value="Struct"/>
+      <Folder Name="Cmd">
+        <Property Name="Description" Value=""/>
+        <Property Name="FolderType" Value="Struct"/>
+        <DataPoint Name="Home">
+          <Property Name="ConnectedBySharedResource" Value="False"/>
+          <Property Name="ConnectingVisus" Value="Software\HMI\Visu"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="PLCType" Value="BOOL"/>
+          <Property Name="UpdateTime" Value="Default"/>
+          <Property Name="UserID" Value="None"/>
+          <Property Name="VCType" Value="BOOL"/>
+        </DataPoint>
+      </Folder>
+    </Folder>
+  </DataPoints>
+</DataSource>

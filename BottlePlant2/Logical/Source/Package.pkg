@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.2.9.65 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="Package">Misc</Object>
+    <Object Type="Package">RoboticVis</Object>
+  </Objects>
+</Package>
