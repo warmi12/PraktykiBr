@@ -7,5 +7,7 @@ VAR
 	TasmaAxisPosition : REAL;
 	WozekAxisPosition : REAL;
 	NalewakAxisPosition : REAL;
+	TasmaPos1 : REAL;
+	TasmaPos2 : REAL;
 	pAxesPositions : REFERENCE TO AxesPositionsType;
 END_VAR

@@ -13,12 +13,16 @@ PROGRAM _CYCLIC
 	ELSE
 		RETURN;
 	END_IF
+	TasmaPos1:=LREAL_TO_REAL(pAxesPositions.Tasma);
+	TasmaPos1:=brmfmod(TasmaPos1,2500);
+	
+		
 	
 	// --------------------------------------------
 	// Prepare correct positions for model
 	// --------------------------------------------
-	RobVisData.Tasma := ModelConfig.Butelki.OffsetPierwszej + LREAL_TO_REAL(pAxesPositions.Tasma) + TasmaAxisPosition;
-	RobVisData.Wozek := ModelConfig.Wozek.OffsetWozka + LREAL_TO_REAL(pAxesPositions.Wozek) + WozekAxisPosition;
+	RobVisData.Tasma := ModelConfig.Butelki.OffsetPierwszej + TasmaPos1 + TasmaAxisPosition + 400;
+	RobVisData.Wozek := ModelConfig.Wozek.OffsetWozka + LREAL_TO_REAL(pAxesPositions.Wozek) + WozekAxisPosition + 470;
 	RobVisData.Nalewak := (LREAL_TO_REAL(pAxesPositions.Nalewak) + NalewakAxisPosition);
 	RobVisData.SensorColor;
 	

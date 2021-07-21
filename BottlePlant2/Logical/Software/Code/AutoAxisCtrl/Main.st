@@ -192,6 +192,7 @@ PROGRAM _CYCLIC
 					gAxes.Ctrl.MpPourerAxis.Stop:=FALSE;
 					
 					gAxes.Ctrl.MpTransporterAxis.MoveVelocity:=FALSE;
+					
 
 					gAxes.State:=STATE_WAIT_FOR_CMD_AXES;
 					//gAxes.Cmd.Stop:=FALSE;
