@@ -2,7 +2,9 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="Program" Language="IEC">AutoAxisCtrl</Object>
+    <Object Type="Program" Language="IEC">AxisCtrl</Object>
     <Object Type="Program" Language="IEC">MachineCtrl</Object>
+    <Object Type="File">GlobalMachine.typ</Object>
+    <Object Type="File">GlobalMachine.var</Object>
   </Objects>
 </Package>

@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
-    <Task Name="AutoAxisCt" Source="Software.Code.AutoAxisCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AxisCtrl" Source="Software.Code.AxisCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="RobVis" Source="Source.Misc.RobVis.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="MachineSta" Source="Software.Code.MachineCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
