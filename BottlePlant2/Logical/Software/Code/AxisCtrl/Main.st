@@ -2,7 +2,7 @@
 PROGRAM _INIT
 	(* Insert code here *)
 	gAxes.SequencerCtrl.MpAxisCamSequencer_0.Enable:=TRUE;
-	gAxes.SequencerCtrl.MpAxisCamSequencer_1.Enable:=TRUE;
+	//gAxes.SequencerCtrl.MpAxisCamSequencer_1.Enable:=TRUE;
 
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Deceleration:=1000;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.Master:=ADR(gTranAxis);
@@ -14,15 +14,15 @@ PROGRAM _INIT
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].CompMode:=ncONLYCOMP_DIRECT;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].CamProfileIndex:=16#ffff;
 	
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].MasterCompDistance:=0;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].MasterCompDistance:=400;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].SlaveCompDistance:=0;
 	
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].MasterFactor:=400*100;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].SlaveFactor:=400*100;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].MasterFactor:=100*100;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].SlaveFactor:=0;
 	
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].Event[0].Type:=ncST_END;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].Event[0].Attribute:=ncAT_ONCE;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].Event[0].NextState:=2;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].Event[0].NextState:=0;
 	
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].CompMode:=ncONLYCOMP_DIRECT;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].CamProfileIndex:=16#fffe;
@@ -56,30 +56,30 @@ PROGRAM _INIT
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].Event[0].Attribute:=ncAT_ONCE;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].Event[0].NextState:=2;
 	
-	//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CompMode:=ncONLYCOMP_DIRECT;
-	//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CamProfileIndex:=16#ffff;
-	//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterCompDistance:=0.0;
-	//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveCompDistance:=0.0;
-	//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterFactor:=200*100;
-	//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveFactor:=0;
-	//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Type:=ncST_END;
-	//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Attribute:=ncAT_ONCE;
-	//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].NextState:=3;
-	
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CompMode:=ncONLYCOMP_DIRECT;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CamProfileIndex:=16#fffe;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterCompDistance:=290.0;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveCompDistance:=-275.0;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterFactor:=1;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CamProfileIndex:=16#ffff;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterCompDistance:=0.0;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveCompDistance:=0.0;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterFactor:=200*100;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveFactor:=0;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Type:=ncST_END;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Attribute:=ncAT_ONCE;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].NextState:=0;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].NextState:=3;
 	
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CompMode:=ncONLYCOMP_DIRECT;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CamProfileIndex:=16#fffe;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterCompDistance:=290.0;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveCompDistance:=-275.0;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterFactor:=1;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveFactor:=0;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Type:=ncST_END;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Attribute:=ncAT_ONCE;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].NextState:=0;
+//	
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].CompMode:=ncONLYCOMP_DIRECT;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].CamProfileIndex:=16#fffe;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].MasterCompDistance:=90.0;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].SlaveCompDistance:=-470.0;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].SlaveCompDistance:=-275.0;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].MasterFactor:=1;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].SlaveFactor:=0;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].Event[0].Type:=ncST_END;
@@ -107,17 +107,14 @@ PROGRAM _CYCLIC
 	gAxes.SequencerCtrl.MpAxisCamSequencer_0.MpLink:=ADR(gCartAxisCfg);
 	gAxes.SequencerCtrl.MpAxisCamSequencer_0.MpLinkMaster:=ADR(gTranAxisCfg);	
 	gAxes.SequencerCtrl.MpAxisCamSequencer_0.Parameters:=ADR(gAxes.SequencerCtrl.MpAxisCamSequencerPar_0);
-	gAxes.SequencerCtrl.MpAxisCamSequencer_0();
+	
 	
 	gAxes.SequencerCtrl.MpAxisCamSequencer_1.MpLink:=ADR(gPourAxisCfg);
 	gAxes.SequencerCtrl.MpAxisCamSequencer_1.MpLinkMaster:=ADR(gCartAxisCfg);	
 	gAxes.SequencerCtrl.MpAxisCamSequencer_1.Parameters:=ADR(gAxes.SequencerCtrl.MpAxisCamSequencerPar_1);
 	//Machine.SequencerCtrl.MpAxisCamSequencer_1.Signal1:=Machine.SequencerCtrl.MpAxisCamSequencer_0.InCompensation;
-	gAxes.SequencerCtrl.MpAxisCamSequencer_1();
 	
-	gAxes.Ctrl.MpTransporterAxis();
-	gAxes.Ctrl.MpCartAxis();
-	gAxes.Ctrl.MpPourerAxis();
+
 
 	
 	(* MAszyna stanów zarz¹dzajaca silnikami *)
@@ -139,6 +136,18 @@ PROGRAM _CYCLIC
 			gAxes.Ctrl.MpTransporterAxis.Enable:=TRUE;
 			gAxes.Ctrl.MpCartAxis.Enable:=TRUE;
 			gAxes.Ctrl.MpPourerAxis.Enable:=TRUE;
+			
+			gAxes.Ctrl.MpTransporterAxisPar.Velocity:=100;
+			gAxes.Ctrl.MpTransporterAxisPar.Acceleration:=200;
+			gAxes.Ctrl.MpTransporterAxisPar.Deceleration:=200;
+			
+			gAxes.Ctrl.MpCartAxisPar.Velocity:=100;
+			gAxes.Ctrl.MpCartAxisPar.Acceleration:=200;
+			gAxes.Ctrl.MpCartAxisPar.Deceleration:=200;
+			
+			gAxes.Ctrl.MpPourerAxisPar.Velocity:=800;
+			gAxes.Ctrl.MpPourerAxisPar.Acceleration:=800;
+			gAxes.Ctrl.MpPourerAxisPar.Deceleration:=800;
 			
 			IF gAxes.Ctrl.MpTransporterAxis.Active AND gAxes.Ctrl.MpCartAxis.Active AND gAxes.Ctrl.MpPourerAxis.Active THEN
 				gAxes.State.Auto:=STATE_POWER_ON_AXES;
@@ -431,8 +440,6 @@ PROGRAM _CYCLIC
 				gAxes.Timers.HomeTimer[0].IN:=FALSE;
 				gAxes.Timers.HomeTimer[0]();
 			END_IF;
-		  
-
 	END_CASE;
 		
 	IF gAxes.SequencerCtrl.MpAxisCamSequencer_0.ActualStateIndex=1 THEN
@@ -440,6 +447,18 @@ PROGRAM _CYCLIC
 	ELSE
 		gAxes.SequencerCtrl.MpAxisCamSequencer_1.Signal1:=FALSE;
 	END_IF;
+	
+	MachineAxesPosition.Tasma:=gAxes.Ctrl.MpTransporterAxis.Position;
+	MachineAxesPosition.Wozek:=gAxes.Ctrl.MpCartAxis.Position;
+	MachineAxesPosition.Nalewak:=gAxes.Ctrl.MpPourerAxis.Position;
+	AdrAxesPositions:=ADR(MachineAxesPosition);
+	
+	gAxes.SequencerCtrl.MpAxisCamSequencer_0();
+	gAxes.SequencerCtrl.MpAxisCamSequencer_1();
+	
+	gAxes.Ctrl.MpTransporterAxis();
+	gAxes.Ctrl.MpCartAxis();
+	gAxes.Ctrl.MpPourerAxis();
 END_PROGRAM
 
 PROGRAM _EXIT

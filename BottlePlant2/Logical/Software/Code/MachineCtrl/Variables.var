@@ -1,7 +1,4 @@
 VAR
 	Machine :  MachineCtrlType;
-	MachineAxesPosition : AxesPositionsType;
-	posT : LREAL;
-	posW : LREAL;
-	posN : LREAL;
+
 END_VAR

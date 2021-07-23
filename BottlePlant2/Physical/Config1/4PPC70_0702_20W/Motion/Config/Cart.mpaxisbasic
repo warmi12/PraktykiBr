@@ -17,4 +17,5 @@
       </Group>
     </Selector>
   </Element>
+  <Element ID="gCartAxisCfg_1" Type="mpaxisbasic" />
 </Configuration>

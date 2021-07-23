@@ -19,7 +19,7 @@ PROGRAM _CYCLIC
 				//ustawiamy odpowiedni layer
 				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
 			END_IF;
-		//zamiast main moze wait for cmd?
+			//zamiast main moze wait for cmd?
 		STATE_WAIT_FOR_CMD_MACHINE:
 			IF EDGEPOS(Machine.Cmd.MachineCmd.Start) THEN
 				Machine.Cmd.MachineCmd.Start:=FALSE;
@@ -39,17 +39,17 @@ PROGRAM _CYCLIC
 				Machine.Cmd.MachineCmd.AutoCtrl:=FALSE;
 				Machine.States.MachineState:=STATE_AUTO_MACHINE;
 			END_IF
-			MachineAxesPosition.Tasma:=gAxes.Ctrl.MpTransporterAxis.Position;
-			MachineAxesPosition.Wozek:=gAxes.Ctrl.MpCartAxis.Position;
-			MachineAxesPosition.Nalewak:=gAxes.Ctrl.MpPourerAxis.Position;
-			AdrAxesPositions:=ADR(MachineAxesPosition);
+
 			Machine.GUI.uiShowLayer[0]:=1; //strona glowna
 		STATE_START_MACHINE:
 			//layer taki jak w home
 			gAxes.Cmd.Auto.MoveVelocity:=TRUE;
+			
+			
 			Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
 			//wylaczenie odpowiednich leyerow
 		STATE_STOP_MACHINE:
+			
 			gAxes.Ctrl.MpTransporterAxis.MoveVelocity:=FALSE;
 			Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
 			//wlaczenie layeru w ktorym sa podlaczone przyciski z komendami hommowania
@@ -60,12 +60,14 @@ PROGRAM _CYCLIC
 			ELSE
 				gAxes.SequencerCtrl.MpAxisCamSequencer_0.StartSequence:=FALSE;
 				gAxes.SequencerCtrl.MpAxisCamSequencer_1.StartSequence:=FALSE;
+				gAxes.SequencerCtrl.MpAxisCamSequencer_0.EndSequence:=TRUE;
+				gAxes.SequencerCtrl.MpAxisCamSequencer_1.EndSequence:=TRUE;
 				//pojawiaja sie przyciski od jog
 				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
 			END_IF;
 		STATE_AUTO_MACHINE:
-//			IF gAxes.Ctrl.MpTransporterAxis.MoveActive OR gAxes.Ctrl.MpTransporterAxis.MoveActive THEN
-//	  			zabezpieczenie ze jesli jetw ruchu to nie mozna z manual do auto
+			//			IF gAxes.Ctrl.MpTransporterAxis.MoveActive OR gAxes.Ctrl.MpTransporterAxis.MoveActive THEN
+			//	  			zabezpieczenie ze jesli jetw ruchu to nie mozna z manual do auto
 			//			END_IF;
 			IF gAxes.Ctrl.MpPourerAxis.Position <> 0 THEN
 				gAxes.Ctrl.MpPourerAxis.MoveAbsolute:=TRUE;
@@ -79,35 +81,19 @@ PROGRAM _CYCLIC
 				gAxes.Ctrl.MpCartAxis.MoveAbsolute:=FALSE;
 			END_IF
 		
-			IF gAxes.Ctrl.MpPourerAxis.Position=0 AND gAxes.Ctrl.MpCartAxis.Position=0 THEN
-				gAxes.Ctrl.MpTransporterAxisPar.Position:=gAxes.Ctrl.MpTransporterAxis.Position+(500-brmfmod(LREAL_TO_REAL(gAxes.Ctrl.MpTransporterAxis.Position),500))+500;
+			IF gAxes.Ctrl.MpPourerAxis.Position=0 AND gAxes.Ctrl.MpCartAxis.Position=0 AND NOT(gAxes.Ctrl.MpTransporterAxis.MoveActive) THEN
+				gAxes.Ctrl.MpTransporterAxisPar.Position:=gAxes.Ctrl.MpTransporterAxis.Position+(500-brmfmod(LREAL_TO_REAL(gAxes.Ctrl.MpTransporterAxis.Position),500));
 				gAxes.Cmd.Auto.Update:=TRUE;
 				gAxes.Ctrl.MpTransporterAxis.MoveAbsolute:=TRUE;
 			END_IF
 		
-
-			
-			
-		
-		
-		
-		//next case to wait for cmd
-			
-
+			IF gAxes.Ctrl.MpTransporterAxis.InPosition THEN
+				gAxes.Ctrl.MpTransporterAxis.MoveAbsolute:=FALSE;
+				gAxes.Ctrl.MpTransporterAxis.Update:=FALSE;
+				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+				//odpowiednilayer?
+			END_IF;	
 	END_CASE;
-
-//	Machine.SequencerCtrl.MpAxisCamSequencer_0.MpLink:=ADR(gCartAxisCfg);
-//	Machine.SequencerCtrl.MpAxisCamSequencer_0.MpLinkMaster:=ADR(gTranAxisCfg);	
-//	Machine.SequencerCtrl.MpAxisCamSequencer_0.Parameters:=ADR(Machine.SequencerCtrl.MpAxisCamSequencerPar_0);
-//	Machine.SequencerCtrl.MpAxisCamSequencer_0();
-	
-
-	
-	//	Machine.SequencerCtrl.MpAxisCamSequencer_1.MpLink:=ADR(gPourAxisCfg);
-	//	Machine.SequencerCtrl.MpAxisCamSequencer_1.MpLinkMaster:=ADR(gCartAxisCfg);	
-	//	Machine.SequencerCtrl.MpAxisCamSequencer_1.Parameters:=ADR(Machine.SequencerCtrl.MpAxisCamSequencerPar_1);
-//	//Machine.SequencerCtrl.MpAxisCamSequencer_1.Signal1:=Machine.SequencerCtrl.MpAxisCamSequencer_0.InCompensation;
-//	Machine.SequencerCtrl.MpAxisCamSequencer_1();
 END_PROGRAM
 
 PROGRAM _EXIT
