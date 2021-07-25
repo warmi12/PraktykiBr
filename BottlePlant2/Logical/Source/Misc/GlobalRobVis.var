@@ -2,4 +2,5 @@ VAR
 	diButelka : BOOL;
 	AdrAxesPositions : UDINT;
 	cntButelki : UDINT;
+	posN : INT;
 END_VAR

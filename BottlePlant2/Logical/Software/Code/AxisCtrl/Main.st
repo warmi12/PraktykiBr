@@ -2,40 +2,34 @@
 PROGRAM _INIT
 	(* Insert code here *)
 	gAxes.SequencerCtrl.MpAxisCamSequencer_0.Enable:=TRUE;
-	//gAxes.SequencerCtrl.MpAxisCamSequencer_1.Enable:=TRUE;
+	gAxes.SequencerCtrl.MpAxisCamSequencer_1.Enable:=TRUE;
 
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Deceleration:=1000;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.Master:=ADR(gTranAxis);
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.StartState:=0;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[0].Event[0].Type:=ncS_START;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[0].Event[0].Type:=ncSIGNAL1;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[0].Event[0].Attribute:=ncAT_ONCE;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[0].Event[0].NextState:=1;
 	
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].CompMode:=ncONLYCOMP_DIRECT;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].CamProfileIndex:=16#ffff;
-	
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].MasterCompDistance:=400;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].MasterCompDistance:=0;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].SlaveCompDistance:=0;
-	
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].MasterFactor:=100*100;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].SlaveFactor:=0;
-	
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].MasterFactor:=400*100;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].SlaveFactor:=400*100;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].Event[0].Type:=ncST_END;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].Event[0].Attribute:=ncAT_ONCE;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].Event[0].NextState:=0;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[1].Event[0].NextState:=2;
 	
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].CompMode:=ncONLYCOMP_DIRECT;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].CamProfileIndex:=16#fffe;
-	
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].MasterCompDistance:=100;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].MasterCompDistance:=90;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].SlaveCompDistance:=-400;
-	
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].MasterFactor:=1;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].SlaveFactor:=1;
-	
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].SlaveFactor:=0;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].Event[0].Type:=ncST_END;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].Event[0].Attribute:=ncAT_ONCE;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].Event[0].NextState:=1;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_0.Configuration.State[2].Event[0].NextState:=0;
 	
 	(* drugi seq *)
 	
@@ -46,6 +40,7 @@ PROGRAM _INIT
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[0].Event[0].Attribute:=ncAT_ONCE;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[0].Event[0].NextState:=1;
 	
+	(* Sytuacja nalewak inkrementalny *)
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].CompMode:=ncONLYCOMP_DIRECT;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].CamProfileIndex:=16#fffe;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].MasterCompDistance:=100.0;
@@ -56,35 +51,38 @@ PROGRAM _INIT
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].Event[0].Attribute:=ncAT_ONCE;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].Event[0].NextState:=2;
 	
+
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CompMode:=ncONLYCOMP_DIRECT;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CamProfileIndex:=16#ffff;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterCompDistance:=0.0;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveCompDistance:=0.0;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterFactor:=200*100;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CamProfileIndex:=16#fffe;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterCompDistance:=290.0;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveCompDistance:=-275.0;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterFactor:=1;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveFactor:=0;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Type:=ncST_END;
 	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Attribute:=ncAT_ONCE;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].NextState:=3;
+	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].NextState:=0;
+
 	
+	(* Sytuacja nalewak na sztywno *) (* Kszta³ butelk itd rozkminic to co ma byc w rece oraz czujnik itd jak przekazywac jak zmieniac te opcje itd *)
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].CompMode:=ncONLYCOMP_DIRECT;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].CamProfileIndex:=16#ffff;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].MasterCompDistance:=100.0;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].SlaveCompDistance:=275.0;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].MasterFactor:=200*100;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].SlaveFactor:=0;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].Event[0].Type:=ncST_END;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].Event[0].Attribute:=ncAT_ONCE;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[1].Event[0].NextState:=2;
+//	
 //	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CompMode:=ncONLYCOMP_DIRECT;
 //	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].CamProfileIndex:=16#fffe;
-//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterCompDistance:=290.0;
+//	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterCompDistance:=100.0;
 //	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveCompDistance:=-275.0;
 //	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterFactor:=1;
 //	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveFactor:=0;
 //	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Type:=ncST_END;
 //	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].Attribute:=ncAT_ONCE;
 //	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[2].Event[0].NextState:=0;
-//	
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].CompMode:=ncONLYCOMP_DIRECT;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].CamProfileIndex:=16#fffe;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].MasterCompDistance:=90.0;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].SlaveCompDistance:=-275.0;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].MasterFactor:=1;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].SlaveFactor:=0;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].Event[0].Type:=ncST_END;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].Event[0].Attribute:=ncAT_ONCE;
-	gAxes.SequencerCtrl.MpAxisCamSequencerPar_1.Configuration.State[3].Event[0].NextState:=0;
 	(* To DO -> timer w homming, brak wylaczania zasilani *)
 	gAxes.State.Auto:=STATE_INIT_AXES;
 	gControlType:=TRUE;
@@ -442,15 +440,25 @@ PROGRAM _CYCLIC
 			END_IF;
 	END_CASE;
 		
-	IF gAxes.SequencerCtrl.MpAxisCamSequencer_0.ActualStateIndex=1 THEN
+	
+	IF brmfmod(UDINT_TO_REAL(cntButelki),5.0)=0 AND EDGENEG(diButelka)THEN
+		gAxes.SequencerCtrl.MpAxisCamSequencer_0.Signal1:=TRUE;
+	ELSE
+		gAxes.SequencerCtrl.MpAxisCamSequencer_0.Signal1:=FALSE;
+	END_IF;
+	
+	IF brmfmod(UDINT_TO_REAL(cntButelki),5.0)=0 AND EDGENEG(diButelka) THEN
 		gAxes.SequencerCtrl.MpAxisCamSequencer_1.Signal1:=TRUE;
 	ELSE
 		gAxes.SequencerCtrl.MpAxisCamSequencer_1.Signal1:=FALSE;
 	END_IF;
 	
+
+	
 	MachineAxesPosition.Tasma:=gAxes.Ctrl.MpTransporterAxis.Position;
 	MachineAxesPosition.Wozek:=gAxes.Ctrl.MpCartAxis.Position;
-	MachineAxesPosition.Nalewak:=gAxes.Ctrl.MpPourerAxis.Position;
+	MachineAxesPosition.Nalewak:=gAxes.Ctrl.MpPourerAxis.Position;;
+	diButelka;
 	AdrAxesPositions:=ADR(MachineAxesPosition);
 	
 	gAxes.SequencerCtrl.MpAxisCamSequencer_0();
