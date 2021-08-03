@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MessageBoxContent">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="5"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="227159" Value="Homming done!"/>
+    <Text ID="233113" Value="To switch to manual mode, you must stop the machine"/>
+    <Text ID="236131" Value="You need to load a recipe to start the machine"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="227159" Value=""/>
+    <Text ID="233113" Value=""/>
+    <Text ID="236131" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="227159" Value="0"/>
+    <Index ID="233113" Value="1"/>
+    <Index ID="236131" Value="2"/>
+  </IndexMap>
+</TextGroup>

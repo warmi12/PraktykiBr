@@ -5,18 +5,18 @@
   <Property Name="Index" Value="0"/>
   <TextSnippets/>
   <TextLayer LanguageId="en">
-    <Text ID="93939" Value="%m/%d/%Y %H:%M:%S"/>
-    <Text ID="93940" Value="%H:%M:%S"/>
-    <Text ID="93941" Value="%H:%M"/>
+    <Text ID="224261" Value="%m/%d/%Y %H:%M:%S"/>
+    <Text ID="224262" Value="%H:%M:%S"/>
+    <Text ID="224263" Value="%H:%M"/>
   </TextLayer>
   <TextLayer LanguageId="de">
-    <Text ID="93939" Value="%d.%m.%Y %H:%M:%S"/>
-    <Text ID="93940" Value="%H:%M:%S"/>
-    <Text ID="93941" Value="%H:%M"/>
+    <Text ID="224261" Value="%d.%m.%Y %H:%M:%S"/>
+    <Text ID="224262" Value="%H:%M:%S"/>
+    <Text ID="224263" Value="%H:%M"/>
   </TextLayer>
   <IndexMap>
-    <Index ID="93939" Value="0"/>
-    <Index ID="93940" Value="1"/>
-    <Index ID="93941" Value="2"/>
+    <Index ID="224261" Value="0"/>
+    <Index ID="224262" Value="1"/>
+    <Index ID="224263" Value="2"/>
   </IndexMap>
 </TextGroup>

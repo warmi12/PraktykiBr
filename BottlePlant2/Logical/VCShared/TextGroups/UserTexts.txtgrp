@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="UserTexts">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="6"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="236019" Value="Current User"/>
+    <Text ID="236020" Value="Status"/>
+    <Text ID="236021" Value="Set machine speed"/>
+    <Text ID="236029" Value="Speed ​​set by recipe"/>
+    <Text ID="239104" Value="Output speed"/>
+    <Text ID="239105" Value="Output speed recipe"/>
+    <Text ID="245055" Value="Total bottles counter"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="236019" Value=""/>
+    <Text ID="236020" Value=""/>
+    <Text ID="236021" Value=""/>
+    <Text ID="236029" Value=""/>
+    <Text ID="239104" Value=""/>
+    <Text ID="239105" Value=""/>
+    <Text ID="245055" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="236019" Value="0"/>
+    <Index ID="236020" Value="1"/>
+    <Index ID="236021" Value="2"/>
+    <Index ID="236029" Value="3"/>
+    <Index ID="239104" Value="4"/>
+    <Index ID="239105" Value="5"/>
+    <Index ID="245055" Value="6"/>
+  </IndexMap>
+</TextGroup>

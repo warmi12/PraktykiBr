@@ -5,21 +5,21 @@
   <Property Name="Index" Value="153"/>
   <TextSnippets/>
   <TextLayer LanguageId="en">
-    <Text ID="93654" Value="Bypassed"/>
-    <Text ID="93655" Value="Not Bypassed"/>
-    <Text ID="93656" Value="nB"/>
-    <Text ID="93657" Value="B"/>
+    <Text ID="224241" Value="Bypassed"/>
+    <Text ID="224242" Value="Not Bypassed"/>
+    <Text ID="224243" Value="nB"/>
+    <Text ID="224244" Value="B"/>
   </TextLayer>
   <TextLayer LanguageId="de">
-    <Text ID="93654" Value="Gebrückt"/>
-    <Text ID="93655" Value="Entbrückt"/>
-    <Text ID="93656" Value="nB"/>
-    <Text ID="93657" Value="B"/>
+    <Text ID="224241" Value="Gebrückt"/>
+    <Text ID="224242" Value="Entbrückt"/>
+    <Text ID="224243" Value="nB"/>
+    <Text ID="224244" Value="B"/>
   </TextLayer>
   <IndexMap>
-    <Index ID="93654" Value="1"/>
-    <Index ID="93655" Value="0"/>
-    <Index ID="93656" Value="10"/>
-    <Index ID="93657" Value="11"/>
+    <Index ID="224241" Value="1"/>
+    <Index ID="224242" Value="0"/>
+    <Index ID="224243" Value="10"/>
+    <Index ID="224244" Value="11"/>
   </IndexMap>
 </TextGroup>

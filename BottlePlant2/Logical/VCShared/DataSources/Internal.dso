@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="3.0.90.12"?>
+<?AutomationStudio Version="4.2.4.149"?>
 <DataSource xmlns="http://br-automation.co.at/AS/VC/Project" Name="Internal">
   <Property Name="AutoRefresh" Value="True" />
   <Property Name="DefaultUpdateTime" Value="200" />
@@ -16,7 +16,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="INTEGER" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
       <DataPoint Name="Contrast">
@@ -25,7 +25,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="INTEGER" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
       <DataPoint Name="BackLight">
@@ -48,7 +48,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="STRING" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
       <DataPoint Name="NodeNumber">
@@ -57,7 +57,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="INTEGER" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
     </Folder>
@@ -98,7 +98,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="INTEGER" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
       <DataPoint Name="Hour">
@@ -107,7 +107,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="INTEGER" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
       <DataPoint Name="Minute">
@@ -116,7 +116,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="INTEGER" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
       <DataPoint Name="Month">
@@ -125,7 +125,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="INTEGER" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
       <DataPoint Name="Second">
@@ -134,7 +134,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="INTEGER" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
       <DataPoint Name="Year">
@@ -143,7 +143,7 @@
         <Property Name="UpdateTime" Value="Default" />
         <Property Name="UserID" Value="None" />
         <Property Name="VCType" Value="INTEGER" />
-        <Property Name="ConnectingVisus" Value="" />
+        <Property Name="ConnectingVisus" Value="Software\HMI\Visu" />
         <Property Name="ConnectedBySharedResource" Value="False" />
       </DataPoint>
       <DataPoint Name="DayOfWeek">

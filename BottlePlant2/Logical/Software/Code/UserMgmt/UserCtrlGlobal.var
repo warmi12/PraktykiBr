@@ -1,0 +1,3 @@
+VAR
+	gCurrentUser : DINT;
+END_VAR

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="Buttons">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="2"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="227099" Value="Go to home position!"/>
+    <Text ID="233089" Value="Start"/>
+    <Text ID="233090" Value="Stop"/>
+    <Text ID="233091" Value="Change Recipe"/>
+    <Text ID="233092" Value="EStop"/>
+    <Text ID="233093" Value="Home Transporter"/>
+    <Text ID="233094" Value="Home Cart"/>
+    <Text ID="233095" Value="Home Pourer"/>
+    <Text ID="233098" Value="Manual Mode"/>
+    <Text ID="242080" Value="Update"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="227099" Value=""/>
+    <Text ID="233089" Value=""/>
+    <Text ID="233090" Value=""/>
+    <Text ID="233091" Value=""/>
+    <Text ID="233092" Value=""/>
+    <Text ID="233093" Value=""/>
+    <Text ID="233094" Value=""/>
+    <Text ID="233095" Value=""/>
+    <Text ID="233098" Value=""/>
+    <Text ID="242080" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="227099" Value="0"/>
+    <Index ID="233089" Value="1"/>
+    <Index ID="233090" Value="2"/>
+    <Index ID="233091" Value="3"/>
+    <Index ID="233092" Value="4"/>
+    <Index ID="233093" Value="5"/>
+    <Index ID="233094" Value="6"/>
+    <Index ID="233095" Value="7"/>
+    <Index ID="233098" Value="8"/>
+    <Index ID="242080" Value="9"/>
+  </IndexMap>
+</TextGroup>

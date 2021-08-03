@@ -5,14 +5,13 @@
     <Selector ID="AxisConfiguration" Value="AxisWithConfiguration">
       <Group ID="Axis">
         <Property ID="BaseType" Value="4" />
+        <Property ID="MeasurementUnit" Value="1" />
+        <Group ID="SoftwareLimitPositions">
+          <Property ID="LowerLimit" Value="0" />
+          <Property ID="UpperLimit" Value="400" />
+        </Group>
         <Group ID="PeriodSettings">
           <Property ID="Period" Value="360" />
-        </Group>
-        <Group ID="MovementLimits">
-          <Property ID="VelocityPositive" Value="10000.0" />
-          <Property ID="VelocityNegative" Value="10000.0" />
-          <Property ID="Acceleration" Value="50000.0" />
-          <Property ID="Deceleration" Value="50000.0" />
         </Group>
       </Group>
       <Group ID="Drive">

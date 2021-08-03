@@ -1,0 +1,13 @@
+
+VAR
+	gRecipeValues : ARRAY[1..2] OF gRecipeValuesType;
+	gRecipeLoaded : BOOL;
+	uiBottlePerMinute : REAL;
+	uiBottlePerHour : REAL;
+	uiRecipeBottlePerMinute : REAL;
+	uiRecipeBottlePerHour : REAL;
+END_VAR
+
+VAR CONSTANT
+
+END_VAR

@@ -1,0 +1,5 @@
+VAR
+	Machine :  MachineCtrlType;
+	Recipe : MpRecipeXml;
+	RecipePar : MpRecipeRegPar;
+END_VAR

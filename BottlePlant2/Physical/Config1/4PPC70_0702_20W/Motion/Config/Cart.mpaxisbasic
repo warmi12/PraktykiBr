@@ -5,12 +5,6 @@
     <Selector ID="AxisConfiguration" Value="AxisWithConfiguration">
       <Group ID="Axis">
         <Property ID="BaseType" Value="4" />
-        <Group ID="MovementLimits">
-          <Property ID="VelocityPositive" Value="10000.0" />
-          <Property ID="VelocityNegative" Value="10000.0" />
-          <Property ID="Acceleration" Value="50000.0" />
-          <Property ID="Deceleration" Value="50000.0" />
-        </Group>
       </Group>
       <Group ID="Drive">
         <Group ID="Controller">
