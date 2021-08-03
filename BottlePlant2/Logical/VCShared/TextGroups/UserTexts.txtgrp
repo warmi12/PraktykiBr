@@ -12,6 +12,15 @@
     <Text ID="239104" Value="Output speed"/>
     <Text ID="239105" Value="Output speed recipe"/>
     <Text ID="245055" Value="Total bottles counter"/>
+    <Text ID="248109" Value="Actual Transporter Speed"/>
+    <Text ID="248110" Value="Actual Cart Speed"/>
+    <Text ID="248111" Value="Actual Pourer Speed"/>
+    <Text ID="248178" Value="Set Transporter Speed"/>
+    <Text ID="248179" Value="Set Cart Speed"/>
+    <Text ID="248180" Value="Set Pourer Speed"/>
+    <Text ID="248182" Value="Actual Transporter Position"/>
+    <Text ID="248183" Value="Actual Cart Position"/>
+    <Text ID="248184" Value="Actual Pourer Position"/>
   </TextLayer>
   <TextLayer LanguageId="de">
     <Text ID="236019" Value=""/>
@@ -21,6 +30,15 @@
     <Text ID="239104" Value=""/>
     <Text ID="239105" Value=""/>
     <Text ID="245055" Value=""/>
+    <Text ID="248109" Value=""/>
+    <Text ID="248110" Value=""/>
+    <Text ID="248111" Value=""/>
+    <Text ID="248178" Value=""/>
+    <Text ID="248179" Value=""/>
+    <Text ID="248180" Value=""/>
+    <Text ID="248182" Value=""/>
+    <Text ID="248183" Value=""/>
+    <Text ID="248184" Value=""/>
   </TextLayer>
   <IndexMap>
     <Index ID="236019" Value="0"/>
@@ -30,5 +48,14 @@
     <Index ID="239104" Value="4"/>
     <Index ID="239105" Value="5"/>
     <Index ID="245055" Value="6"/>
+    <Index ID="248109" Value="7"/>
+    <Index ID="248110" Value="8"/>
+    <Index ID="248111" Value="9"/>
+    <Index ID="248178" Value="11"/>
+    <Index ID="248179" Value="12"/>
+    <Index ID="248180" Value="13"/>
+    <Index ID="248182" Value="10"/>
+    <Index ID="248183" Value="14"/>
+    <Index ID="248184" Value="15"/>
   </IndexMap>
 </TextGroup>

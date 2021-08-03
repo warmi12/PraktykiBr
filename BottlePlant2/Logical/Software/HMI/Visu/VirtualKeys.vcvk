@@ -2710,14 +2710,6 @@
     <Property Name="Description" Value=""/>
     <Property Name="VirtualKey_LED" Value="False"/>
   </VirtualKey>
-  <VirtualKey Name="%embVirtualKey_6">
-    <Property Name="Description" Value=""/>
-    <Property Name="VirtualKey_LED" Value="False"/>
-  </VirtualKey>
-  <VirtualKey Name="%embVirtualKey_7">
-    <Property Name="Description" Value=""/>
-    <Property Name="VirtualKey_LED" Value="False"/>
-  </VirtualKey>
   <VirtualKey Name="%embVirtualKey_14">
     <Property Name="Description" Value=""/>
     <Property Name="VirtualKey_LED" Value="False"/>
@@ -2923,6 +2915,50 @@
     <Property Name="VirtualKey_LED" Value="False"/>
   </VirtualKey>
   <VirtualKey Name="%embVirtualKey_4_3">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_136">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_4">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_5">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_6">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_7">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_8">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_9">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_10">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_11">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_12">
+    <Property Name="Description" Value=""/>
+    <Property Name="VirtualKey_LED" Value="False"/>
+  </VirtualKey>
+  <VirtualKey Name="%embVirtualKey_10_13">
     <Property Name="Description" Value=""/>
     <Property Name="VirtualKey_LED" Value="False"/>
   </VirtualKey>

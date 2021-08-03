@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<UnitGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="Speed">
+  <Property Name="DefaultDisplayUnit" Value="Source[embedded].Unit[Millimeter]"/>
+  <Property Name="DefaultLimit" Value="None"/>
+  <Property Name="DefaultPLCUnit" Value="None"/>
+  <Property Name="Description" Value="Unit group for length"/>
+  <Property Name="InternalUnitTextIndex" Value="0"/>
+  <Property Name="RuntimeUnitChange" Value="None"/>
+  <Property Name="RuntimeUnitCurrentDatapoint" Value="None"/>
+  <TextGroup Name="TextGroup_1">
+    <Property Name="Description" Value=""/>
+    <Property Name="Index" Value="65536"/>
+    <TextSnippets/>
+    <TextLayer LanguageId="en">
+      <Text ID="248188" Value="millimeter"/>
+      <Text ID="248189" Value="mm/s"/>
+      <Text ID="248204" Value="meter"/>
+    </TextLayer>
+    <TextLayer LanguageId="de">
+      <Text ID="248188" Value="Millimeter"/>
+      <Text ID="248189" Value="mm"/>
+      <Text ID="248204" Value="Meter"/>
+    </TextLayer>
+    <IndexMap>
+      <Index ID="248188" Value="1"/>
+      <Index ID="248189" Value="2"/>
+      <Index ID="248204" Value="0"/>
+    </IndexMap>
+  </TextGroup>
+  <Units>
+    <Unit ClassId="0x00000602" Name="Millimeter">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1"/>
+      <Property Name="Index" Value="0"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="2"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="1"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="0"/>
+    </Unit>
+  </Units>
+  <Limits/>
+</UnitGroup>

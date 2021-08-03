@@ -271,14 +271,14 @@ PROGRAM _CYCLIC
 	 
 	CASE gAxes.State.Manual OF
 		STATE_WAIT_FOR_CMD_MANUAL:
-			gAxes.Ctrl.MpTransporterAxis.JogPositive:=gAxes.Cmd.Manual.TransporterJogPositive;
-			gAxes.Ctrl.MpTransporterAxis.JogNegative:=gAxes.Cmd.Manual.TransporterJogNegative;
-			
-			gAxes.Ctrl.MpCartAxis.JogPositive:=gAxes.Cmd.Manual.CartJogPositive;
-			gAxes.Ctrl.MpCartAxis.JogNegative:=gAxes.Cmd.Manual.CartJogNegative;
-			
-			gAxes.Ctrl.MpPourerAxis.JogPositive:=gAxes.Cmd.Manual.PourerJogPositive;
-			gAxes.Ctrl.MpPourerAxis.JogNegative:=gAxes.Cmd.Manual.PourerJogNegative;
+//			gAxes.Ctrl.MpTransporterAxis.JogPositive:=gAxes.Cmd.Manual.TransporterJogPositive;
+//			gAxes.Ctrl.MpTransporterAxis.JogNegative:=gAxes.Cmd.Manual.TransporterJogNegative;
+//			
+//			gAxes.Ctrl.MpCartAxis.JogPositive:=gAxes.Cmd.Manual.CartJogPositive;
+//			gAxes.Ctrl.MpCartAxis.JogNegative:=gAxes.Cmd.Manual.CartJogNegative;
+//			
+//			gAxes.Ctrl.MpPourerAxis.JogPositive:=gAxes.Cmd.Manual.PourerJogPositive;
+//			gAxes.Ctrl.MpPourerAxis.JogNegative:=gAxes.Cmd.Manual.PourerJogNegative;
 		
 			IF EDGEPOS(gAxes.Cmd.Manual.TransporterHomming) THEN
 				gAxes.Cmd.Manual.TransporterHomming:=FALSE;

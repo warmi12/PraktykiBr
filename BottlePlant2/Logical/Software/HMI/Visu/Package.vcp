@@ -409,6 +409,7 @@
     <Source File="Pages\AlarmPage.page"/>
     <Source File="Pages\AlarmHistoryPage.page"/>
     <Source File="Pages\Recipe.page"/>
+    <Source File="Pages\ManualPage.page"/>
     <Source File="Layers\PageInitControl.layer"/>
     <Source File="Layers\Background.layer"/>
     <Source File="Layers\MpOeeControl.layer"/>

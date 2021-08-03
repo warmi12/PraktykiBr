@@ -18,7 +18,7 @@
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
       <Property Name="Top" Value="0"/>
-      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="VisibilityMode" Value="Outline"/>
       <Property Name="Z-Order" Value="0"/>
     </LayerRef>
     <LayerRef Source="Source[local].Layer[PageMainControl]">
@@ -31,7 +31,7 @@
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
       <Property Name="Top" Value="0"/>
-      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="VisibilityMode" Value="Outline"/>
       <Property Name="Z-Order" Value="1"/>
     </LayerRef>
     <Layer Name="Default">
@@ -46,7 +46,7 @@
       <Property Name="OutlineHatched" Value="False"/>
       <Property Name="StatusDatapoint" Value="None"/>
       <Property Name="Top" Value="0"/>
-      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="VisibilityMode" Value="Outline"/>
       <Property Name="Width" Value="800"/>
       <Property Name="Z-Order" Value="2"/>
       <TextGroup>

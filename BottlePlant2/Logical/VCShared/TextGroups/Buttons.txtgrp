@@ -15,6 +15,11 @@
     <Text ID="233095" Value="Home Pourer"/>
     <Text ID="233098" Value="Manual Mode"/>
     <Text ID="242080" Value="Update"/>
+    <Text ID="248105" Value="Auto Mode"/>
+    <Text ID="248120" Value="Move Left"/>
+    <Text ID="248121" Value="Move Right"/>
+    <Text ID="248170" Value="Home"/>
+    <Text ID="251236" Value="Pour"/>
   </TextLayer>
   <TextLayer LanguageId="de">
     <Text ID="227099" Value=""/>
@@ -27,6 +32,11 @@
     <Text ID="233095" Value=""/>
     <Text ID="233098" Value=""/>
     <Text ID="242080" Value=""/>
+    <Text ID="248105" Value=""/>
+    <Text ID="248120" Value=""/>
+    <Text ID="248121" Value=""/>
+    <Text ID="248170" Value=""/>
+    <Text ID="251236" Value=""/>
   </TextLayer>
   <IndexMap>
     <Index ID="227099" Value="0"/>
@@ -39,5 +49,10 @@
     <Index ID="233095" Value="7"/>
     <Index ID="233098" Value="8"/>
     <Index ID="242080" Value="9"/>
+    <Index ID="248105" Value="10"/>
+    <Index ID="248120" Value="11"/>
+    <Index ID="248121" Value="12"/>
+    <Index ID="248170" Value="13"/>
+    <Index ID="251236" Value="14"/>
   </IndexMap>
 </TextGroup>

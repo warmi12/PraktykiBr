@@ -117,6 +117,7 @@ PROGRAM _CYCLIC
 				//alarm maszyna w ruchu nie mozesz przejsc do tryby manualnego
 			ELSE
 				//show manual page
+				Machine.GUI.uiShowPage:=6;
 				gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence:=FALSE;
 				gCamSequencer.Ctrl.MpAxisCamSequencer_1.StartSequence:=FALSE;
 				gCamSequencer.Ctrl.MpAxisCamSequencer_0.EndSequence:=TRUE;
@@ -125,6 +126,7 @@ PROGRAM _CYCLIC
 				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
 			END_IF;
 		STATE_AUTO_MACHINE:
+			//Machine.GUI.uiShowPage:=2;
 			IF gAxes.Ctrl.MpTransporterAxis.MoveActive OR gAxes.Ctrl.MpTransporterAxis.MoveActive OR gAxes.Ctrl.MpPourerAxis.MoveActive THEN
 				///zabezpieczenie ze jesli jetw ruchu to nie mozna z manual do auto
 			ELSE
@@ -144,7 +146,7 @@ PROGRAM _CYCLIC
 					gCamSequencer.Ctrl.MpAxisCamSequencer_0.EndSequence:=FALSE;
 					gCamSequencer.Ctrl.MpAxisCamSequencer_1.EndSequence:=FALSE;
 					//gAxes.Cmd.Auto.MoveVelocity:=TRUE;
-					Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+					Machine.States.MachineState:=STATE_START_MACHINE;
 				END_IF
 			END_IF;
 		STATE_RECIPE_MACHINE:
