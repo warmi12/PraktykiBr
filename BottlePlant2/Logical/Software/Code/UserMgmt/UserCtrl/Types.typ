@@ -5,6 +5,12 @@ TYPE
 		LoginUI : MpUserLoginUI;
 		UIConnect : MpUserLoginUIConnectType;
 		UserData : UserDataType;
+		
+		UserManagerUI : MpUserManagerUI;
+		UserManagerUISetup : MpUserMgrUISetupType;
+		UserManagerUIConnect : MpUserMgrUIConnectType;
+		
+		
 	END_STRUCT;
 	
 	UserDataType : STRUCT

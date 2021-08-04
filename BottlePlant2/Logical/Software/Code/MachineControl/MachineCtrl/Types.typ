@@ -17,7 +17,10 @@ TYPE
 		STATE_HOME_TRANSPORTER_MACHINE := 13,
 		STATE_HOME_CART_MACHINE := 14,
 		STATE_HOME_POURER_MACHINE := 15,
-		STATE_UPDATE_SPEED_MACHINE :=16
+		STATE_UPDATE_SPEED_MACHINE :=16,
+		STATE_LOGOUT_MACHINE:=17,
+		STATE_LOGIN_MACHINE:=18,
+		STATE_ERROR_RESET_MACHINE:=19
 	);	
 	
 	MachineStatusType : 
@@ -53,6 +56,8 @@ TYPE
 		Service : BOOL;
 		Alarm : BOOL;
 		UpdateSpeed : BOOL;
+		LogOut : BOOL;
+		ErrorReset : BOOL;
 	END_STRUCT;
 
 	GUIType : STRUCT
@@ -60,6 +65,8 @@ TYPE
 		uiShowPage : INT;
 		uiCurrentPage : INT;
 		uiCounterBottle : INT;
+		uiConfirm : BOOL;
+		uiRefuse : BOOL;
 	END_STRUCT;
 	
 	MachineCtrlType : 	STRUCT 

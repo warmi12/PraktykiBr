@@ -8,7 +8,7 @@
       <Property Name="AddFractionDigits" Value="0"/>
       <Property Name="Alignment" Value="Right"/>
       <Property Name="Content" Value="Value Unittext"/>
-      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpUserManagerUIConnect.User.Info.DisplayUnit]"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Software.Code.UserMgmt.UserCtrl.UserCtrl.UserManagerUIConnect.User.Info.DisplayUnit]"/>
       <Property Name="Description" Value=""/>
       <Property Name="FillCharacter" Value=""/>
       <Property Name="MaxChars" Value="None"/>
@@ -20,7 +20,7 @@
       <Property Name="AddFractionDigits" Value="0"/>
       <Property Name="Alignment" Value="Right"/>
       <Property Name="Content" Value="Value Unittext"/>
-      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpUserManagerUIConnect.User.Info.Language]"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Software.Code.UserMgmt.UserCtrl.UserCtrl.UserManagerUIConnect.User.Info.Language]"/>
       <Property Name="Description" Value=""/>
       <Property Name="FillCharacter" Value=""/>
       <Property Name="MaxChars" Value="None"/>
@@ -30,7 +30,7 @@
     </TextSnippet>
     <TextSnippet ClassId="0x00002004" Name="EditGroup">
       <Property Name="Alignment" Value="Left"/>
-      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpUserManagerUIConnect.Group.Edit.Dialog.Index]"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Software.Code.UserMgmt.UserCtrl.UserCtrl.UserManagerUIConnect.Group.Edit.Dialog.Index]"/>
       <Property Name="Description" Value=""/>
       <Property Name="FillCharacter" Value=""/>
       <Property Name="MaxChars" Value="None"/>

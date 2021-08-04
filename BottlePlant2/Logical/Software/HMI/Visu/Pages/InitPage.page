@@ -113,6 +113,19 @@
         </VirtualKey>
       </KeyMapping>
     </Layer>
+    <LayerRef Source="Source[local].Layer[ErrorAxesMessageBox]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="ErrorAxesMessageBox"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Z-Order" Value="3"/>
+    </LayerRef>
   </Layers>
   <MovementOrder/>
   <TabSequence>

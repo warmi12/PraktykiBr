@@ -35,6 +35,7 @@ PROGRAM _CYCLIC
 
 	CASE gAxes.State.Auto OF
 		STATE_INIT_AXES:
+			MpAlarmSet(gAlarmBasic,0,'kupaa');
 			gAxes.Ctrl.MpTransporterAxis.Enable:=TRUE;
 			gAxes.Ctrl.MpCartAxis.Enable:=TRUE;
 			gAxes.Ctrl.MpPourerAxis.Enable:=TRUE;
@@ -64,7 +65,6 @@ PROGRAM _CYCLIC
 				gAxes.Ctrl.MpPourerAxis.Update:=FALSE;
 			END_IF;
 		STATE_WAIT_FOR_CMD_AXES:
-			MpAlarmSet(gAlarmBasic,0,'kupaa');
 			IF EDGEPOS(gAxes.Cmd.Auto.Power) THEN
 				gAxes.Cmd.Auto.Power:=FALSE;
 				gAxes.State.Auto:=STATE_POWER_ON_AXES;
@@ -322,7 +322,7 @@ PROGRAM _CYCLIC
 				gAxes.State.Auto:=STATE_ERROR_AXES;
 			END_IF;
 			
-			IF gAxes.Ctrl.MpCartAxis.IsHomed THEN
+			IF EDGEPOS(gAxes.Ctrl.MpCartAxis.IsHomed) THEN
 				gAxes.Ctrl.MpCartAxis.Home:=FALSE;
 				gAxes.State.Manual:=STATE_WAIT_FOR_CMD_MANUAL;
 				gAxes.Timers.HomeTimer[0].IN:=FALSE;
@@ -341,7 +341,7 @@ PROGRAM _CYCLIC
 				gAxes.State.Auto:=STATE_ERROR_AXES;
 			END_IF;
 			
-			IF gAxes.Ctrl.MpPourerAxis.IsHomed THEN
+			IF EDGEPOS(gAxes.Ctrl.MpPourerAxis.IsHomed) THEN
 				gAxes.Ctrl.MpPourerAxis.Home:=FALSE;
 				gAxes.State.Manual:=STATE_WAIT_FOR_CMD_MANUAL;
 				gAxes.Timers.HomeTimer[0].IN:=FALSE;

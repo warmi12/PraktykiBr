@@ -1,14 +1,18 @@
 TYPE
 	gCamSequencerStateType : 
 		(
-		STATE_INIT_SEQUENCER:=0,
-		STATE_LOAD_SEQUENCER:=1,
-		STATE_SAVE_SEQUENCER:=2
+		STATE_ERROR_SEQUENCER:=1,
+		STATE_WAIT_FOR_CMD_SEQUENCER:=0
 	);
+	
+	gCamSequencerCmdType : STRUCT
+		ErrorReset : BOOL;  
+	END_STRUCT;
 	
 	gCamSequencerCtrlType : STRUCT
 		Ctrl : gCamSequencerBasicCtrlType;
 		State : gCamSequencerStateType;
+		Cmd : gCamSequencerCmdType;
 	END_STRUCT;
 	
 	gCamSequencerBasicCtrlType : STRUCT

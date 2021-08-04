@@ -7,13 +7,16 @@
   <TextLayer LanguageId="en">
     <Text ID="227157" Value="Warning!"/>
     <Text ID="227158" Value="Success!"/>
+    <Text ID="257398" Value="Error!"/>
   </TextLayer>
   <TextLayer LanguageId="de">
     <Text ID="227157" Value=""/>
     <Text ID="227158" Value=""/>
+    <Text ID="257398" Value=""/>
   </TextLayer>
   <IndexMap>
     <Index ID="227157" Value="1"/>
     <Index ID="227158" Value="0"/>
+    <Index ID="257398" Value="2"/>
   </IndexMap>
 </TextGroup>

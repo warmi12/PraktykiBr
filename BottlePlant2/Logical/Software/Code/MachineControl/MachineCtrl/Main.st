@@ -13,6 +13,11 @@ END_PROGRAM
 PROGRAM _CYCLIC
 	Machine.GUI.uiCounterBottle:=UDINT_TO_INT(cntButelki);
 	
+	IF (gAxes.State.Auto=STATE_ERROR_AXES OR gCamSequencer.State=STATE_ERROR_SEQUENCER) AND NOT(Machine.States.MachineState=STATE_ERROR_MACHINE)THEN
+		Machine.GUI.uiShowLayer[5]:=0;
+	  	Machine.States.MachineState:=STATE_ERROR_MACHINE;
+	END_IF;
+	
 	CASE Machine.States.MachineState OF
 		STATE_INIT_MACHINE:
 			IF gCurrentUser <> 0 THEN
@@ -43,7 +48,6 @@ PROGRAM _CYCLIC
 			END_IF;
 			IF EDGEPOS(Machine.Cmd.MachineCmd.Stop) THEN
 				//stop layer -> pokazuja sie przyciski od home kazdej osi
-				Machine.Status:='STOP';
 				Machine.Cmd.MachineCmd.Stop:=FALSE;
 				Machine.States.MachineState:=STATE_STOP_MACHINE;
 			END_IF;
@@ -84,11 +88,19 @@ PROGRAM _CYCLIC
 				Machine.Cmd.MachineCmd.HomePourer:=FALSE;
 				Machine.States.MachineState:=STATE_HOME_POURER_MACHINE;
 			END_IF
+			IF EDGEPOS(Machine.Cmd.MachineCmd.LogOut) THEN
+				Machine.Cmd.MachineCmd.LogOut:=FALSE;
+				Machine.States.MachineState:=STATE_LOGOUT_MACHINE;
+			END_IF
 			IF EDGEPOS(Machine.Cmd.MachineCmd.UpdateSpeed) THEN
 				Machine.Cmd.MachineCmd.UpdateSpeed:=FALSE;
 				Machine.States.MachineState:=STATE_UPDATE_SPEED_MACHINE;
 			END_IF
-			
+//			IF EDGEPOS(Machine.Cmd.MachineCmd.ErrorReset) THEN
+//				Machine.Cmd.MachineCmd.ErrorReset:=FALSE;
+//				Machine.States.MachineState:=STATE_ERROR_RESET_MACHINE;
+//			END_IF
+//			
 			
 
 			//Machine.GUI.uiShowLayer[0]:=0; //strona glowna
@@ -96,10 +108,12 @@ PROGRAM _CYCLIC
 			//layer taki jak w home
 			IF gRecipeLoaded THEN
 				Machine.Status:='AUTOWORKING';
-				gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence:=TRUE;
-				gCamSequencer.Ctrl.MpAxisCamSequencer_1.StartSequence:=TRUE;
-				gAxes.Cmd.Auto.MoveVelocity:=TRUE;
-				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+				IF gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence=TRUE AND gCamSequencer.Ctrl.MpAxisCamSequencer_1.StartSequence=TRUE THEN
+					gAxes.Cmd.Auto.MoveVelocity:=TRUE;
+					Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+				ELSE
+					Machine.States.MachineState:=STATE_AUTO_MACHINE;
+				END_IF;
 			ELSE
 				Machine.GUI.uiShowLayer[2]:=0;
 				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
@@ -107,6 +121,7 @@ PROGRAM _CYCLIC
 
 			//wylaczenie odpowiednich leyerow
 		STATE_STOP_MACHINE:
+			Machine.Status:='STOPPED';
 			gAxes.Ctrl.MpTransporterAxis.MoveVelocity:=FALSE;
 			Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
 			//wlaczenie layeru w ktorym sa podlaczone przyciski z komendami hommowania
@@ -117,6 +132,7 @@ PROGRAM _CYCLIC
 				//alarm maszyna w ruchu nie mozesz przejsc do tryby manualnego
 			ELSE
 				//show manual page
+				Machine.Status:='MANUAL';
 				Machine.GUI.uiShowPage:=6;
 				gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence:=FALSE;
 				gCamSequencer.Ctrl.MpAxisCamSequencer_1.StartSequence:=FALSE;
@@ -127,6 +143,7 @@ PROGRAM _CYCLIC
 			END_IF;
 		STATE_AUTO_MACHINE:
 			//Machine.GUI.uiShowPage:=2;
+			Machine.Status:='PREPARING';
 			IF gAxes.Ctrl.MpTransporterAxis.MoveActive OR gAxes.Ctrl.MpTransporterAxis.MoveActive OR gAxes.Ctrl.MpPourerAxis.MoveActive THEN
 				///zabezpieczenie ze jesli jetw ruchu to nie mozna z manual do auto
 			ELSE
@@ -145,8 +162,10 @@ PROGRAM _CYCLIC
 				IF gAxes.Ctrl.MpPourerAxis.Position=0 AND gAxes.Ctrl.MpCartAxis.Position=0 THEN
 					gCamSequencer.Ctrl.MpAxisCamSequencer_0.EndSequence:=FALSE;
 					gCamSequencer.Ctrl.MpAxisCamSequencer_1.EndSequence:=FALSE;
-					//gAxes.Cmd.Auto.MoveVelocity:=TRUE;
-					Machine.States.MachineState:=STATE_START_MACHINE;
+					gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence:=TRUE;
+					gCamSequencer.Ctrl.MpAxisCamSequencer_1.StartSequence:=TRUE;
+					gAxes.Cmd.Auto.MoveVelocity:=TRUE;
+					Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
 				END_IF
 			END_IF;
 		STATE_RECIPE_MACHINE:
@@ -157,8 +176,10 @@ PROGRAM _CYCLIC
 				//alarm maszyna w ruchu nie mozesz przejsc do tryby manualnego
 			ELSE
 				Machine.Status:='MANUAL HOMMING';
+				gAxes.Cmd.Manual.TransporterHomming;
 				IF gAxes.Ctrl.MpTransporterAxis.IsHomed THEN
 					Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+					Machine.Status:='MANUAL';
 				END_IF;
 			END_IF;
 		STATE_HOME_CART_MACHINE:
@@ -167,8 +188,10 @@ PROGRAM _CYCLIC
 				//alarm maszyna w ruchu nie mozesz przejsc do tryby manualnego
 			ELSE
 				Machine.Status:='MANUAL HOMMING';
+				gAxes.Cmd.Manual.CartHomming:=TRUE;
 				IF gAxes.Ctrl.MpCartAxis.IsHomed THEN
 					Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+					Machine.Status:='MANUAL';
 				END_IF;
 			END_IF;
 		STATE_HOME_POURER_MACHINE:
@@ -177,18 +200,72 @@ PROGRAM _CYCLIC
 				//alarm maszyna w ruchu nie mozesz przejsc do tryby manualnego
 			ELSE
 				Machine.Status:='MANUAL HOMMING';
+				gAxes.Cmd.Manual.PourerHomming:=TRUE;
 				IF gAxes.Ctrl.MpPourerAxis.IsHomed THEN
+					Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+					Machine.Status:='MANUAL';
+				END_IF;
+			END_IF;
+		STATE_LOGOUT_MACHINE:
+			IF gAxes.Ctrl.MpTransporterAxis.MoveActive THEN
+				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+				Machine.GUI.uiShowLayer[3]:=0;
+				//alarm maszyna w ruchu nie mozesz przejsc do tryby manualnego
+			ELSE
+				Machine.GUI.uiShowLayer[4]:=0;
+				IF EDGEPOS(Machine.GUI.uiConfirm) THEN
+					gLogOutUser:=TRUE;
+					IF gCurrentUser=0 THEN
+						Machine.Status:='LOGOUT';
+						Machine.GUI.uiShowLayer[4]:=1;
+						Machine.States.MachineState:=STATE_LOGIN_MACHINE;
+						Machine.GUI.uiShowPage:=0;
+						gLogOutUser:=FALSE;
+						Machine.GUI.uiConfirm:=0;
+					END_IF;
+				ELSIF EDGEPOS(Machine.GUI.uiRefuse) THEN
+					Machine.GUI.uiShowLayer[4]:=1;
+					Machine.GUI.uiRefuse:=0;
 					Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
 				END_IF;
 			END_IF;
+		STATE_LOGIN_MACHINE:
+			IF gCurrentUser>0 THEN
+				Machine.GUI.uiShowPage:=2;
+				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+			END_IF;
+		
 		STATE_UPDATE_SPEED_MACHINE:
 			gAxes.Ctrl.MpTransporterAxisPar.Velocity:=uiBottlePerMinute;
 			uiBottlePerHour:=uiBottlePerMinute;
 			gRecipeValues[1].Velocity:=gAxes.Ctrl.MpTransporterAxisPar.Velocity;
 	        gAxes.Cmd.Auto.Update:=TRUE;
-			Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
-		
-		
+			Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;	
+		STATE_ERROR_MACHINE:
+			gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence:=FALSE;
+			gCamSequencer.Ctrl.MpAxisCamSequencer_1.StartSequence:=FALSE;
+			gCamSequencer.Ctrl.MpAxisCamSequencer_0.EndSequence:=TRUE;
+			gCamSequencer.Ctrl.MpAxisCamSequencer_1.EndSequence:=TRUE;
+			//okienko popup
+			IF EDGEPOS(Machine.Cmd.MachineCmd.ErrorReset)THEN
+				Machine.Cmd.MachineCmd.ErrorReset:=FALSE;
+				gAxes.Cmd.Auto.ErrorReset:=TRUE;
+				gCamSequencer.Cmd.ErrorReset:=TRUE;
+			END_IF;
+			
+			IF gAxes.State.Auto=STATE_ERROR_AXES OR gCamSequencer.State=STATE_ERROR_SEQUENCER THEN
+				IF EDGEPOS(Machine.GUI.uiConfirm) THEN
+					Machine.GUI.uiConfirm:=0;
+					Machine.GUI.uiShowLayer[5]:=1;
+					Machine.GUI.uiShowPage:=3;
+				ELSIF EDGEPOS(Machine.GUI.uiRefuse) THEN
+					Machine.GUI.uiShowLayer[5]:=1;
+					Machine.GUI.uiRefuse:=0;
+				END_IF
+			ELSE
+				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+				gAxes.Cmd.Auto.Power:=TRUE;
+			END_IF;
 	END_CASE;
 END_PROGRAM
 

@@ -26,9 +26,9 @@
       <Property Name="Description" Value=""/>
       <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_10]"/>
       <Property Name="Font" Value="Source[local].Font[MpMenuButtons]"/>
-      <Property Name="Height" Value="50"/>
+      <Property Name="Height" Value="28"/>
       <Property Name="KeyMatrixOffset" Value="None"/>
-      <Property Name="Left" Value="502"/>
+      <Property Name="Left" Value="498"/>
       <Property Name="Locking" Value="Datapoint &lt; Level"/>
       <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Software.Code.UserMgmt.UserCtrl.UserCtrl.UIConnect.UserLevel]"/>
       <Property Name="LockingLevel" Value="70"/>
@@ -41,9 +41,9 @@
       <Property Name="TextIndexDatapoint" Value="None"/>
       <Property Name="TextSimulationValue" Value="0"/>
       <Property Name="TextSource" Value="None"/>
-      <Property Name="Top" Value="0"/>
+      <Property Name="Top" Value="9"/>
       <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_10]"/>
-      <Property Name="Width" Value="50"/>
+      <Property Name="Width" Value="31"/>
     </Control>
     <Control ClassId="0x00001002" Name="cmdHomePage">
       <Property Name="BackColor" Value="0"/>
@@ -97,6 +97,68 @@
       <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_70]"/>
       <Property Name="Width" Value="55"/>
     </Control>
+    <Control ClassId="0x00001002" Name="cmdSetupPage1">
+      <Property Name="BackColor" Value="0"/>
+      <Property Name="Bitmap" Value="Source[local].Bitmap[MpIcon_MpUserClick2]"/>
+      <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+      <Property Name="BitmapAlignmentVertical" Value="Above Text"/>
+      <Property Name="BitmapIndexDatapoint" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_136]"/>
+      <Property Name="Font" Value="Source[local].Font[MpMenuButtons]"/>
+      <Property Name="Height" Value="47"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="243"/>
+      <Property Name="Locking" Value="Datapoint &lt; Level"/>
+      <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Software.Code.UserMgmt.UserCtrl.UserCtrl.UIConnect.UserLevel]"/>
+      <Property Name="LockingLevel" Value="70"/>
+      <Property Name="PressedBackColor" Value="15"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedBorder" Value="Source[local].Border[Mp_Flat_grey]"/>
+      <Property Name="PressedForeColor" Value="253"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGlobalAreaButton]"/>
+      <Property Name="TextIndexDatapoint" Value="None"/>
+      <Property Name="TextSimulationValue" Value="0"/>
+      <Property Name="TextSource" Value="None"/>
+      <Property Name="Top" Value="5"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_136]"/>
+      <Property Name="Width" Value="40"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="cmdSetupPage2">
+      <Property Name="BackColor" Value="0"/>
+      <Property Name="Bitmap" Value="Source[local].Bitmap[MpUserExitre]"/>
+      <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+      <Property Name="BitmapAlignmentVertical" Value="Above Text"/>
+      <Property Name="BitmapIndexDatapoint" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_138]"/>
+      <Property Name="Font" Value="Source[local].Font[MpMenuButtons]"/>
+      <Property Name="Height" Value="45"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="537"/>
+      <Property Name="Locking" Value="Datapoint &lt; Level"/>
+      <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Software.Code.UserMgmt.UserCtrl.UserCtrl.UIConnect.UserLevel]"/>
+      <Property Name="LockingLevel" Value="70"/>
+      <Property Name="PressedBackColor" Value="15"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedBorder" Value="Source[local].Border[Mp_Flat_grey]"/>
+      <Property Name="PressedForeColor" Value="253"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGlobalAreaButton]"/>
+      <Property Name="TextIndexDatapoint" Value="None"/>
+      <Property Name="TextSimulationValue" Value="0"/>
+      <Property Name="TextSource" Value="None"/>
+      <Property Name="Top" Value="1"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_138]"/>
+      <Property Name="Width" Value="36"/>
+    </Control>
   </Controls>
   <KeyMapping>
     <VirtualKey Name="%embVirtualKey_10">
@@ -134,6 +196,34 @@
           <Property Name="Name" Value="Action_0"/>
           <Property Name="Page" Value="Source[local].Page[AlarmPage]"/>
           <Property Name="Target" Value="Page"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+    <VirtualKey Name="%embVirtualKey_136">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x00000160">
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="Page" Value="Source[local].Page[UserControl]"/>
+          <Property Name="Target" Value="Page"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+    <VirtualKey Name="%embVirtualKey_138">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x00000161">
+          <Property Name="CompletionDatapoint" Value="None"/>
+          <Property Name="CompletionValue" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="SetValue" Value="1"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Software.Code.MachineControl.MachineCtrl.Machine.Cmd.MachineCmd.LogOut]"/>
         </KeyAction>
       </KeyActions>
     </VirtualKey>

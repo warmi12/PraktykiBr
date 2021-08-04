@@ -6,7 +6,7 @@
   <TextSnippets>
     <TextSnippet ClassId="0x00002004" Name="ErrorText">
       <Property Name="Alignment" Value="Left"/>
-      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpUserManagerUIConnect.MessageBox.ErrorNumber]"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Software.Code.UserMgmt.UserCtrl.UserCtrl.UserManagerUIConnect.MessageBox.ErrorNumber]"/>
       <Property Name="Description" Value=""/>
       <Property Name="FillCharacter" Value=""/>
       <Property Name="MaxChars" Value="None"/>
@@ -16,7 +16,7 @@
     </TextSnippet>
     <TextSnippet ClassId="0x00002002" Name="SelectedUser">
       <Property Name="Alignment" Value="Left"/>
-      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpUserManagerUIConnect.User.Info.UserName]"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Software.Code.UserMgmt.UserCtrl.UserCtrl.UserManagerUIConnect.User.Info.UserName]"/>
       <Property Name="Description" Value=""/>
       <Property Name="FillCharacter" Value=""/>
       <Property Name="MaxChars" Value="None"/>
@@ -34,7 +34,7 @@
     </TextSnippet>
     <TextSnippet ClassId="0x00002002" Name="SelectedGroup">
       <Property Name="Alignment" Value="Left"/>
-      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpUserManagerUIConnect.Group.Info.Name]"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Software.Code.UserMgmt.UserCtrl.UserCtrl.UserManagerUIConnect.Group.Info.Name]"/>
       <Property Name="Description" Value=""/>
       <Property Name="FillCharacter" Value=""/>
       <Property Name="MaxChars" Value="None"/>

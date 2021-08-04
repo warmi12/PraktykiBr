@@ -47,7 +47,7 @@ PROGRAM _CYCLIC
 				uiBottlePerHour:=gRecipeValues[1].Velocity;
 				uiBottlePerMinute:=gRecipeValues[1].Velocity;
 				gAxes.Ctrl.MpTransporterAxisPar.Velocity:=gRecipeValues[1].Velocity;
-				gAxes.Cmd.Auto.Update:=TRUE;
+				
 				gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[1].CamProfileIndex:=gRecipeValues[1].CamProfileIndex;
 				gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[1].MasterCompDistance:=gRecipeValues[1].MasterCompDistance;
 				gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[1].SlaveCompDistance:=gRecipeValues[1].SlaveComDistance;
@@ -64,9 +64,11 @@ PROGRAM _CYCLIC
 			
 				IF gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence=TRUE AND gCamSequencer.Ctrl.MpAxisCamSequencer_0.ActualStateIndex=2 THEN
 					gCamSequencer.Ctrl.MpAxisCamSequencer_1.Update:=TRUE;
+					gAxes.Cmd.Auto.Update:=TRUE;
 					Recipe.State:=STATE_WAIT_RECIPE;
 				ELSIF gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence=FALSE THEN
 					gCamSequencer.Ctrl.MpAxisCamSequencer_1.Update:=TRUE;
+					gAxes.Cmd.Auto.Update:=TRUE;
 					Recipe.State:=STATE_WAIT_RECIPE;
 				END_IF
 			END_IF;	

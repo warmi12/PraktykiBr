@@ -356,6 +356,7 @@
     <Source File="Bitmaps\MpAudit_RecipeEvents.bminfo"/>
     <Source File="Bitmaps\MpAudit_TweetEvent.bminfo"/>
     <Source File="Bitmaps\mappSERVICES_logo.bminfo"/>
+    <Source File="Bitmaps\MpUserExitre.bminfo"/>
     <Source File="BitmapGroups\MpAlarmAcknowledgeState.bmgrp"/>
     <Source File="BitmapGroups\MpAuditEventsID.bmgrp"/>
     <Source File="BitmapGroups\MpFileIcons.bmgrp"/>
@@ -410,6 +411,7 @@
     <Source File="Pages\AlarmHistoryPage.page"/>
     <Source File="Pages\Recipe.page"/>
     <Source File="Pages\ManualPage.page"/>
+    <Source File="Pages\UserControl.page"/>
     <Source File="Layers\PageInitControl.layer"/>
     <Source File="Layers\Background.layer"/>
     <Source File="Layers\MpOeeControl.layer"/>
@@ -419,6 +421,9 @@
     <Source File="Layers\PageMainControl.layer"/>
     <Source File="Layers\ActiveVelocityAlert.layer"/>
     <Source File="Layers\RecipeAlert.layer"/>
+    <Source File="Layers\LogOutMessageBox.layer"/>
+    <Source File="Layers\LogOutMessageBox1.layer"/>
+    <Source File="Layers\ErrorAxesMessageBox.layer"/>
     <Source File="StyleSheets\Color.vcs"/>
     <Source File="StyleSheets\mapp.vcs"/>
     <Source File="Borders\Mp_AttentionOff.bdr"/>

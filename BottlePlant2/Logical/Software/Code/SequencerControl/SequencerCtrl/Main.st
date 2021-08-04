@@ -3,9 +3,7 @@ PROGRAM _INIT
 	(* Insert code here *)
 	gCamSequencer.Ctrl.MpAxisCamSequencer_0.Enable:=TRUE;
 	gCamSequencer.Ctrl.MpAxisCamSequencer_1.Enable:=TRUE;
-	
-//	gCamSequencer.RecipeCtrl.Enable:=TRUE;
-//	gCamSequencer.RecipeCtrlPar.Enable:=TRUE;
+	gCamSequencer.State:=STATE_WAIT_FOR_CMD_SEQUENCER;
 	
 	gCamSequencer.Ctrl.MpAxisCamSequencerPar_0.Deceleration:=1000;
 	gCamSequencer.Ctrl.MpAxisCamSequencerPar_0.Configuration.Master:=ADR(gTranAxis);
@@ -91,13 +89,9 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 	(* Insert code here *)
-//	gCamSequencer.RecipeCtrl.MpLink:=ADR(gRecipeXml);
-//	gCamSequencer.RecipeCtrl.DeviceName:=ADR('USER');
-//	gCamSequencer.RecipeCtrl.FileName:=ADR('file1');
-//	gCamSequencer.RecipeCtrl();
-//	gCamSequencer.RecipeCtrlPar.MpLink:=ADR(gRecipeXml);
-//	gCamSequencer.RecipeCtrlPar.PVName:=ADR('gCamSequencer.RecipeValues');
-//	gCamSequencer.RecipeCtrlPar();
+	IF gCamSequencer.Ctrl.MpAxisCamSequencer_0.Error OR gCamSequencer.Ctrl.MpAxisCamSequencer_1.Error THEN
+	  gCamSequencer.State:=STATE_ERROR_SEQUENCER;
+	END_IF;
 	
 	gCamSequencer.Ctrl.MpAxisCamSequencer_0.MpLink:=ADR(gCartAxisCfg);
 	gCamSequencer.Ctrl.MpAxisCamSequencer_0.MpLinkMaster:=ADR(gTranAxisCfg);	
@@ -109,28 +103,23 @@ PROGRAM _CYCLIC
 	gCamSequencer.Ctrl.MpAxisCamSequencer_1.Parameters:=ADR(gCamSequencer.Ctrl.MpAxisCamSequencerPar_1);
 	//Machine.gCamSequencer.Ctrl.MpAxisCamSequencer_1.Signal1:=Machine.gCamSequencer.Ctrl.MpAxisCamSequencer_0.InCompensation;
 	
-//	CASE gCamSequencer.State OF
-////		STATE_SAVE_SEQUENCER:
-////			gCamSequencer.RecipeValues[1].Velocity:=gAxes.Ctrl.MpTransporterAxisPar.Velocity;
-////			gCamSequencer.RecipeValues[1].CamProfileIndex:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[1].CamProfileIndex;
-////			gCamSequencer.RecipeValues[1].MasterCompDistance:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[1].MasterCompDistance;
-////			gCamSequencer.RecipeValues[1].SlaveComDistance:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[1].SlaveCompDistance;
-////			gCamSequencer.RecipeValues[1].MasterFactor:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[1].MasterFactor;
-////			gCamSequencer.RecipeValues[1].SlaveFactor:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[1].SlaveFactor;
-////		
-////			gCamSequencer.RecipeValues[2].Velocity:=gAxes.Ctrl.MpTransporterAxisPar.Velocity;
-////			gCamSequencer.RecipeValues[2].CamProfileIndex:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[2].CamProfileIndex;
-////			gCamSequencer.RecipeValues[2].MasterCompDistance:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterCompDistance;
-////			gCamSequencer.RecipeValues[2].SlaveComDistance:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveCompDistance;
-////			gCamSequencer.RecipeValues[2].MasterFactor:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[2].MasterFactor;
-////			gCamSequencer.RecipeValues[2].SlaveFactor:=gCamSequencer.Ctrl.MpAxisCamSequencerPar_1.Configuration.State[2].SlaveFactor;
-//			
-//			//gCamSequencer.RecipeCtrl.Save:=TRUE;
-//	//	STATE_LOAD_SEQUENCER:d
-//			gCamSequencer.RecipeCtrl.Load:=TRUE;
-		
-
-	//	END_CASE;
+	CASE gCamSequencer.State OF
+		STATE_WAIT_FOR_CMD_SEQUENCER:
+			
+		STATE_ERROR_SEQUENCER:
+			IF EDGEPOS(gCamSequencer.Cmd.ErrorReset) THEN
+				gCamSequencer.Cmd.ErrorReset:=FALSE;
+				gCamSequencer.Ctrl.MpAxisCamSequencer_0.ErrorReset:=TRUE;
+				gCamSequencer.Ctrl.MpAxisCamSequencer_1.ErrorReset:=TRUE;
+				gCamSequencer.State:=STATE_WAIT_FOR_CMD_SEQUENCER;
+			END_IF;
+			IF NOT(gCamSequencer.Ctrl.MpAxisCamSequencer_0.Error) AND NOT(gCamSequencer.Ctrl.MpAxisCamSequencer_1.Error) THEN
+				gCamSequencer.Ctrl.MpAxisCamSequencer_0.ErrorReset:=FALSE;
+				gCamSequencer.Ctrl.MpAxisCamSequencer_1.ErrorReset:=FALSE;
+	  			gCamSequencer.State:=STATE_WAIT_FOR_CMD_SEQUENCER;
+			END_IF;
+	END_CASE;
+	
 	IF gCamSequencer.Ctrl.MpAxisCamSequencer_1.UpdateDone THEN
 		gCamSequencer.Ctrl.MpAxisCamSequencer_1.Update:=FALSE;
 	END_IF
