@@ -111,7 +111,7 @@ PROGRAM _CYCLIC
 				gCamSequencer.Cmd.ErrorReset:=FALSE;
 				gCamSequencer.Ctrl.MpAxisCamSequencer_0.ErrorReset:=TRUE;
 				gCamSequencer.Ctrl.MpAxisCamSequencer_1.ErrorReset:=TRUE;
-				gCamSequencer.State:=STATE_WAIT_FOR_CMD_SEQUENCER;
+			//	gCamSequencer.State:=STATE_WAIT_FOR_CMD_SEQUENCER;
 			END_IF;
 			IF NOT(gCamSequencer.Ctrl.MpAxisCamSequencer_0.Error) AND NOT(gCamSequencer.Ctrl.MpAxisCamSequencer_1.Error) THEN
 				gCamSequencer.Ctrl.MpAxisCamSequencer_0.ErrorReset:=FALSE;

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.10?>
+<?AutomationStudio Version=4.10.2.37?>
 <InitParameter Version="5.12.2" NcSwId="Acp10">
   <Group ID="ACP10AXIS_typ">
     <Group ID="dig_in">
@@ -44,7 +44,7 @@
     <Group ID="controller">
       <Parameter ID="mode" Value="ncPOSITION" />
       <Group ID="position">
-        <Parameter ID="kv" Value="50" />
+        <Parameter ID="kv" Value="747.0" />
         <Parameter ID="tn" Value="0" />
         <Parameter ID="t_predict" Value="0.0004" />
         <Parameter ID="t_total" Value="0.0004" />
@@ -52,7 +52,7 @@
         <Parameter ID="i_max" Value="0" />
       </Group>
       <Group ID="speed">
-        <Parameter ID="kv" Value="2.0" />
+        <Parameter ID="kv" Value="0.2" />
         <Parameter ID="tn" Value="0" />
         <Parameter ID="t_filter" Value="0.0" />
         <Group ID="isq_filter1">

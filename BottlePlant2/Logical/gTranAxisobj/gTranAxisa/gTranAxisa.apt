@@ -2,6 +2,6 @@
 <?AutomationStudio FileVersion="4.9"?>
 <AcoposParameterTable>
   <Root Name="Parameters">
-    <Parameter Name="CMD_SIMULATION" ID="110" Value="ncSW_ON" />
+    <Parameter Name="CMD_SIMULATION" ID="110" Value="ncSWITCH_OFF" />
   </Root>
 </AcoposParameterTable>

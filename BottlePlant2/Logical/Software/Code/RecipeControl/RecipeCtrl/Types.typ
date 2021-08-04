@@ -15,7 +15,7 @@ TYPE
 	END_STRUCT;
 	
 	RecipeDataType : STRUCT
-		DeviceName : STRING[20] := 'USER';
+		DeviceName : STRING[20] := 'RecipeFile';
 		FileName : STRING[20]:='MyRecipe';
 	END_STRUCT;
 	

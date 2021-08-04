@@ -11,6 +11,12 @@
       </Group>
       <Group ID="Drive">
         <Group ID="Controller">
+          <Group ID="Position">
+            <Property ID="ProportionalGain" Value="624" />
+          </Group>
+          <Group ID="Speed">
+            <Property ID="ProportionalGain" Value="0.2" />
+          </Group>
           <Group ID="LoopFilters">
             <Selector ID="[0]" />
             <Selector ID="[1]" />

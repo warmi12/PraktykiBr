@@ -221,51 +221,60 @@ PROGRAM _CYCLIC
 		STATE_ERROR_AXES:
 			(* Zatrzymanie wszystkich silnikow *)
 			gAxes.Ctrl.MpTransporterAxis.MoveVelocity:=FALSE;
-			IF gAxes.Ctrl.MpTransporterAxis.PowerOn THEN
-				gAxes.Ctrl.MpTransporterAxis.Stop:=TRUE;
-			END_IF;
-			
-			IF gAxes.Ctrl.MpCartAxis.PowerOn THEN
-				gAxes.Ctrl.MpCartAxis.Stop:=TRUE;
-			END_IF;
-			
-			IF gAxes.Ctrl.MpPourerAxis.PowerOn THEN
-				gAxes.Ctrl.MpPourerAxis.Stop:=TRUE;
-			END_IF;
-			
-			(* Jesli sa zastopowane to power off  *)
-			IF gAxes.Ctrl.MpTransporterAxis.Stopped THEN
-				gAxes.Ctrl.MpTransporterAxis.Power:=FALSE;
-			END_IF;
-			
-			IF gAxes.Ctrl.MpCartAxis.Stopped THEN
-				gAxes.Ctrl.MpCartAxis.Power:=FALSE;
-			END_IF;
-			
-			IF gAxes.Ctrl.MpPourerAxis.Stopped THEN
-				gAxes.Ctrl.MpPourerAxis.Power:=FALSE;
-			END_IF;
+			gAxes.Ctrl.MpCartAxis.MoveVelocity:=FALSE;
+			gAxes.Ctrl.MpPourerAxis.MoveVelocity:=FALSE;
+//			IF gAxes.Ctrl.MpTransporterAxis.PowerOn THEN
+//				gAxes.Ctrl.MpTransporterAxis.Stop:=TRUE;
+//			END_IF;
+//			
+//			IF gAxes.Ctrl.MpCartAxis.PowerOn THEN
+//				gAxes.Ctrl.MpCartAxis.Stop:=TRUE;
+//			END_IF;
+//			
+//			IF gAxes.Ctrl.MpPourerAxis.PowerOn THEN
+//				gAxes.Ctrl.MpPourerAxis.Stop:=TRUE;
+//			END_IF;
+//			
+//			(* Jesli sa zastopowane to power off  *)
+//			IF gAxes.Ctrl.MpTransporterAxis.Stopped THEN
+//				gAxes.Ctrl.MpTransporterAxis.Power:=FALSE;
+//			END_IF;
+//			
+//			IF gAxes.Ctrl.MpCartAxis.Stopped THEN
+//				gAxes.Ctrl.MpCartAxis.Power:=FALSE;
+//			END_IF;
+//			
+//			IF gAxes.Ctrl.MpPourerAxis.Stopped THEN
+//				gAxes.Ctrl.MpPourerAxis.Power:=FALSE;
+//			END_IF;
 			
 			(* Czekamy na przycisk reseterror *)
-			IF EDGEPOS(gAxes.Cmd.Auto.ErrorReset) AND (NOT(gAxes.Ctrl.MpTransporterAxis.PowerOn) AND NOT(gAxes.Ctrl.MpCartAxis.PowerOn) AND NOT(gAxes.Ctrl.MpPourerAxis.PowerOn)) THEN
+//			IF EDGEPOS(gAxes.Cmd.Auto.ErrorReset) AND (NOT(gAxes.Ctrl.MpTransporterAxis.PowerOn) AND NOT(gAxes.Ctrl.MpCartAxis.PowerOn) AND NOT(gAxes.Ctrl.MpPourerAxis.PowerOn)) THEN
+//				gAxes.Cmd.Auto.ErrorReset:=FALSE;
+//				
+//				gAxes.Ctrl.MpTransporterAxis.ErrorReset:=TRUE;
+//				gAxes.Ctrl.MpCartAxis.ErrorReset:=TRUE;
+//				gAxes.Ctrl.MpPourerAxis.ErrorReset:=TRUE;		
+//				//gAxes.State.Auto:=WAIT_FOR_CMD;
+//			END_IF;
+			
+			IF EDGEPOS(gAxes.Cmd.Auto.ErrorReset) THEN
 				gAxes.Cmd.Auto.ErrorReset:=FALSE;
-				
-				gAxes.Ctrl.MpTransporterAxis.Stop:=FALSE;
-				gAxes.Ctrl.MpCartAxis.Stop:=FALSE;
-				gAxes.Ctrl.MpPourerAxis.Stop:=FALSE;
 				
 				gAxes.Ctrl.MpTransporterAxis.ErrorReset:=TRUE;
 				gAxes.Ctrl.MpCartAxis.ErrorReset:=TRUE;
-				gAxes.Ctrl.MpPourerAxis.ErrorReset:=TRUE;		
-				//gAxes.State.Auto:=WAIT_FOR_CMD;
+				gAxes.Ctrl.MpPourerAxis.ErrorReset:=TRUE;	
+				//power na false a pozniej true do sprawdzenia
 			END_IF;
 		
 			IF NOT(gAxes.Ctrl.MpTransporterAxis.Error) AND NOT(gAxes.Ctrl.MpCartAxis.Error) AND NOT(gAxes.Ctrl.MpPourerAxis.Error) THEN
 				gAxes.Ctrl.MpTransporterAxis.ErrorReset:=FALSE;
 				gAxes.Ctrl.MpCartAxis.ErrorReset:=FALSE;
 				gAxes.Ctrl.MpPourerAxis.ErrorReset:=FALSE;
+//				gAxes.Ctrl.MpTransporterAxis.Stop:=FALSE;
+//				gAxes.Ctrl.MpCartAxis.Stop:=FALSE;
+//				gAxes.Ctrl.MpPourerAxis.Stop:=FALSE;
 				gAxes.State.Auto:=STATE_WAIT_FOR_CMD_AXES;
-				//gAxes.Ctrl.MpTransporterAxis.MoveVelocity:=FALSE;
 			END_IF
 	END_CASE;
 	 

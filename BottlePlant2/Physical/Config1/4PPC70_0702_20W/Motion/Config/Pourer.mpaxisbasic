@@ -7,7 +7,7 @@
         <Property ID="BaseType" Value="0" />
         <Property ID="MeasurementUnit" Value="1" />
         <Group ID="SoftwareLimitPositions">
-          <Property ID="LowerLimit" Value="-1" />
+          <Property ID="LowerLimit" Value="-20" />
           <Property ID="UpperLimit" Value="280" />
         </Group>
         <Group ID="PeriodSettings">
@@ -16,6 +16,12 @@
       </Group>
       <Group ID="Drive">
         <Group ID="Controller">
+          <Group ID="Position">
+            <Property ID="ProportionalGain" Value="619" />
+          </Group>
+          <Group ID="Speed">
+            <Property ID="ProportionalGain" Value="0.15" />
+          </Group>
           <Group ID="LoopFilters">
             <Selector ID="[0]" />
             <Selector ID="[1]" />

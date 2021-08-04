@@ -13,7 +13,7 @@ END_PROGRAM
 PROGRAM _CYCLIC
 	Machine.GUI.uiCounterBottle:=UDINT_TO_INT(cntButelki);
 	
-	IF (gAxes.State.Auto=STATE_ERROR_AXES OR gCamSequencer.State=STATE_ERROR_SEQUENCER) AND NOT(Machine.States.MachineState=STATE_ERROR_MACHINE)THEN
+	IF (gAxes.State.Auto=STATE_ERROR_AXES OR gCamSequencer.State=STATE_ERROR_SEQUENCER) AND (Machine.States.MachineState<>STATE_ERROR_MACHINE)THEN
 		Machine.GUI.uiShowLayer[5]:=0;
 	  	Machine.States.MachineState:=STATE_ERROR_MACHINE;
 	END_IF;
@@ -105,7 +105,7 @@ PROGRAM _CYCLIC
 
 			//Machine.GUI.uiShowLayer[0]:=0; //strona glowna
 		STATE_START_MACHINE:
-			//layer taki jak w home
+			//layer taki jak w home//sprawdzic status ready i dopiero odpalic 
 			IF gRecipeLoaded THEN
 				Machine.Status:='AUTOWORKING';
 				IF gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence=TRUE AND gCamSequencer.Ctrl.MpAxisCamSequencer_1.StartSequence=TRUE THEN
@@ -164,8 +164,8 @@ PROGRAM _CYCLIC
 					gCamSequencer.Ctrl.MpAxisCamSequencer_1.EndSequence:=FALSE;
 					gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence:=TRUE;
 					gCamSequencer.Ctrl.MpAxisCamSequencer_1.StartSequence:=TRUE;
-					gAxes.Cmd.Auto.MoveVelocity:=TRUE;
-					Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
+					//gAxes.Cmd.Auto.MoveVelocity:=TRUE;
+					Machine.States.MachineState:=STATE_START_MACHINE;
 				END_IF
 			END_IF;
 		STATE_RECIPE_MACHINE:
@@ -242,6 +242,8 @@ PROGRAM _CYCLIC
 	        gAxes.Cmd.Auto.Update:=TRUE;
 			Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;	
 		STATE_ERROR_MACHINE:
+			//gAxes.Cmd.Auto.ErrorReset:=FALSE;
+			//gCamSequencer.Cmd.ErrorReset:=FALSE;
 			gCamSequencer.Ctrl.MpAxisCamSequencer_0.StartSequence:=FALSE;
 			gCamSequencer.Ctrl.MpAxisCamSequencer_1.StartSequence:=FALSE;
 			gCamSequencer.Ctrl.MpAxisCamSequencer_0.EndSequence:=TRUE;
@@ -253,18 +255,18 @@ PROGRAM _CYCLIC
 				gCamSequencer.Cmd.ErrorReset:=TRUE;
 			END_IF;
 			
-			IF gAxes.State.Auto=STATE_ERROR_AXES OR gCamSequencer.State=STATE_ERROR_SEQUENCER THEN
-				IF EDGEPOS(Machine.GUI.uiConfirm) THEN
+			IF EDGEPOS(Machine.GUI.uiConfirm) THEN
 					Machine.GUI.uiConfirm:=0;
 					Machine.GUI.uiShowLayer[5]:=1;
 					Machine.GUI.uiShowPage:=3;
-				ELSIF EDGEPOS(Machine.GUI.uiRefuse) THEN
+			ELSIF EDGEPOS(Machine.GUI.uiRefuse) THEN
 					Machine.GUI.uiShowLayer[5]:=1;
 					Machine.GUI.uiRefuse:=0;
-				END_IF
-			ELSE
+			END_IF;
+			
+			IF gAxes.State.Auto<>STATE_ERROR_AXES AND gCamSequencer.State<>STATE_ERROR_SEQUENCER THEN
 				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
-				gAxes.Cmd.Auto.Power:=TRUE;
+				//jak cos to tutaj power on powinien byc
 			END_IF;
 	END_CASE;
 END_PROGRAM
