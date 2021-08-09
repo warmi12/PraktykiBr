@@ -1,0 +1,4 @@
+VAR
+	gCurrentUser : DINT;
+	gLogOutUser : BOOL;
+END_VAR

@@ -2,7 +2,6 @@
 PROGRAM _INIT
 	(* Insert code here *)
 	gAxes.State.Auto:=STATE_INIT_AXES;
-	gControlType:=TRUE;
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -19,7 +18,7 @@ PROGRAM _CYCLIC
 	gAxes.Ctrl.MpPourerAxis.Parameters:=ADR(gAxes.Ctrl.MpPourerAxisPar);
 	gAxes.Ctrl.MpPourerAxis.Axis:=ADR(gPourAxis);
 	
-	(* MAszyna stanów zarz¹dzajaca silnikami *)
+	(* Warunki sprawdzaj¹ce na której osi wystêpuje error *)
 	IF gAxes.Ctrl.MpTransporterAxis.Error THEN
 		//alarm osi transporter
 		gAxes.State.Auto:=STATE_ERROR_AXES;
@@ -32,16 +31,16 @@ PROGRAM _CYCLIC
 		//alarm nalewaka
 		gAxes.State.Auto:=STATE_ERROR_AXES;
 	END_IF
-
+	
+	(* G³ówna maszyna stanów osi *)
 	CASE gAxes.State.Auto OF
+		(* Stan inicjalizacyjny -> uruchomienie bloków, podstawowe parametry, przejscie dalej *)
 		STATE_INIT_AXES:
-			MpAlarmSet(gAlarmBasic,0,'kupaa');
+			//MpAlarmSet(gAlarmBasic,0,'k');
 			gAxes.Ctrl.MpTransporterAxis.Enable:=TRUE;
 			gAxes.Ctrl.MpCartAxis.Enable:=TRUE;
 			gAxes.Ctrl.MpPourerAxis.Enable:=TRUE;
 			
-			//pytanie czy tutaj recipe
-			//na razie nie
 			gAxes.Ctrl.MpTransporterAxisPar.Acceleration:=500;
 			gAxes.Ctrl.MpCartAxisPar.Acceleration:=500;
 			gAxes.Ctrl.MpPourerAxisPar.Acceleration:=500;
@@ -54,15 +53,9 @@ PROGRAM _CYCLIC
 			gAxes.Ctrl.MpCartAxisPar.Velocity:=100;
 			gAxes.Ctrl.MpPourerAxisPar.Velocity:=100;
 			
-			gAxes.Ctrl.MpTransporterAxis.Update:=TRUE;
-			gAxes.Ctrl.MpCartAxis.Update:=TRUE;
-			gAxes.Ctrl.MpPourerAxis.Update:=TRUE;
-			
+			(* Jesli bloki aktywne przejdz do w³¹czenia zasilania *)
 			IF gAxes.Ctrl.MpTransporterAxis.Active AND gAxes.Ctrl.MpCartAxis.Active AND gAxes.Ctrl.MpPourerAxis.Active THEN
 				gAxes.State.Auto:=STATE_POWER_ON_AXES;
-				gAxes.Ctrl.MpTransporterAxis.Update:=FALSE;
-				gAxes.Ctrl.MpCartAxis.Update:=FALSE;
-				gAxes.Ctrl.MpPourerAxis.Update:=FALSE;
 			END_IF;
 		STATE_WAIT_FOR_CMD_AXES:
 			IF EDGEPOS(gAxes.Cmd.Auto.Power) THEN
@@ -82,60 +75,23 @@ PROGRAM _CYCLIC
 			ELSIF EDGEPOS(gAxes.Cmd.Auto.MoveVelocity) THEN
 				gAxes.Cmd.Auto.MoveVelocity:=FALSE;
 				gAxes.State.Auto:=STATE_MOVE_VELOCITY_AXES;	
-//				ELSIF gAxes.Cmd.Auto.MoveAbsolute THEN
-//				ELSIF gAxes.Cmd.Auto.MoveAdditive THEN	
 			END_IF;				
 		STATE_POWER_ON_AXES:
 			gAxes.Ctrl.MpTransporterAxis.Power:=TRUE;
 			gAxes.Ctrl.MpCartAxis.Power:=TRUE;
 			gAxes.Ctrl.MpPourerAxis.Power:=TRUE;
-			
-			gAxes.Timers.PowerTimer[0].IN:=NOT(gAxes.Ctrl.MpTransporterAxis.PowerOn);
-			gAxes.Timers.PowerTimer[0].PT:=REAL_TO_TIME(gAxes.TimersPar.PowerDelayTime*1000);
-			gAxes.Timers.PowerTimer[0]();
-			
-			gAxes.Timers.PowerTimer[1].IN:=NOT(gAxes.Ctrl.MpCartAxis.PowerOn);
-			gAxes.Timers.PowerTimer[1].PT:=REAL_TO_TIME(gAxes.TimersPar.PowerDelayTime*1000);
-			gAxes.Timers.PowerTimer[1]();
-			
-			gAxes.Timers.PowerTimer[2].IN:=NOT(gAxes.Ctrl.MpPourerAxis.PowerOn);
-			gAxes.Timers.PowerTimer[2].PT:=REAL_TO_TIME(gAxes.TimersPar.PowerDelayTime*1000);
-			gAxes.Timers.PowerTimer[2]();
-			
-			IF gAxes.Timers.PowerTimer[0].Q THEN
-				//zbyt dlugie zalaczanie osi transportra alarm
-				gAxes.Timers.PowerTimer[0].IN:=FALSE;
-				gAxes.Timers.PowerTimer[0]();
-				gAxes.State.Auto:=STATE_ERROR_AXES;
-			END_IF;
-			IF gAxes.Timers.PowerTimer[1].Q THEN
-				//zbyt dlugie zalaczanie osi wozka alarm
-				gAxes.Timers.PowerTimer[1].IN:=FALSE;
-				gAxes.Timers.PowerTimer[1]();
-				gAxes.State.Auto:=STATE_ERROR_AXES;
-			END_IF;
-			IF gAxes.Timers.PowerTimer[2].Q THEN
-				//zbyt dlugie zalaczanie osi nalewaka alarm
-				gAxes.Timers.PowerTimer[2].IN:=FALSE;
-				gAxes.Timers.PowerTimer[2]();
-				gAxes.State.Auto:=STATE_ERROR_AXES;
-			END_IF;
-
+		
 			IF gAxes.Ctrl.MpTransporterAxis.PowerOn AND gAxes.Ctrl.MpCartAxis.PowerOn AND gAxes.Ctrl.MpPourerAxis.PowerOn THEN
 				gAxes.State.Auto:=STATE_WAIT_FOR_CMD_AXES;
-				gAxes.Timers.PowerTimer[0].IN:=FALSE;
-				gAxes.Timers.PowerTimer[0]();
-				gAxes.Timers.PowerTimer[1].IN:=FALSE;
-				gAxes.Timers.PowerTimer[1]();
-				gAxes.Timers.PowerTimer[2].IN:=FALSE;
-				gAxes.Timers.PowerTimer[2]();
 			END_IF;
 
 		STATE_HOME_AXES:
+			(* Automatyczne bazowanie wszystkich osi po kolei  *)
 			gAxes.Ctrl.MpTransporterAxis.Home:=TRUE;
 			gAxes.Ctrl.MpCartAxis.Home:=gAxes.Ctrl.MpTransporterAxis.IsHomed;
 			gAxes.Ctrl.MpPourerAxis.Home:=gAxes.Ctrl.MpCartAxis.IsHomed;
 			
+			(* Wykorzystanie zegarkow do sprawdzenia czy zadana oœ zosta³a zbazowana w odpowiednim czasie *)
 			gAxes.Timers.HomeTimer[0].IN:=NOT(gAxes.Ctrl.MpTransporterAxis.IsHomed);
 			gAxes.Timers.HomeTimer[0].PT:=REAL_TO_TIME(gAxes.TimersPar.HomeDelayTime*1000);
 			gAxes.Timers.HomeTimer[0]();
@@ -169,11 +125,12 @@ PROGRAM _CYCLIC
 				gAxes.State.Auto:=STATE_ERROR_AXES;
 			END_IF;
 			
+			(* Sprawdzenie czy wszystkie osie zosta³y zbazowane *)
 			IF gAxes.Ctrl.MpTransporterAxis.IsHomed AND gAxes.Ctrl.MpCartAxis.IsHomed AND gAxes.Ctrl.MpPourerAxis.IsHomed THEN
 				gAxes.Ctrl.MpTransporterAxis.Home:=FALSE;
 				gAxes.Ctrl.MpCartAxis.Home:=FALSE;
 				gAxes.Ctrl.MpPourerAxis.Home:=FALSE;
-				gAxes.State.Auto:=STATE_WAIT_FOR_CMD_AXES;
+				gAxes.State.Auto:=STATE_WAIT_FOR_CMD_AXES;  //przejscie do stanu gotowosci i oczekiwanie na komendy
 				gAxes.Timers.HomeTimer[0].IN:=FALSE;
 				gAxes.Timers.HomeTimer[0]();
 				gAxes.Timers.HomeTimer[1].IN:=FALSE;
@@ -182,8 +139,8 @@ PROGRAM _CYCLIC
 				gAxes.Timers.HomeTimer[2]();
 			END_IF;
 		STATE_STOP_AXES:
-			//bez wylaczania zasialania
-			(* Sprawdzenie czy jes wlaczonysilnik jesi tak to stop - jesli off to wywalierror *)
+			(* Sprawdzenie czy jes wlaczony silnik jesi tak to stop -> wywo³anie .stop na wy³¹czonym zasilaniu generuje b³¹d *)
+			//warning stop
 			IF gAxes.Ctrl.MpTransporterAxis.PowerOn THEN
 				gAxes.Ctrl.MpTransporterAxis.Stop:=TRUE;
 			END_IF;
@@ -197,10 +154,12 @@ PROGRAM _CYCLIC
 			END_IF;
 			
 			IF gAxes.Ctrl.MpTransporterAxis.Stopped AND gAxes.Ctrl.MpCartAxis.Stopped AND gAxes.Ctrl.MpPourerAxis.Stopped THEN
+				gAxes.Ctrl.MpTransporterAxis.MoveVelocity:=FALSE;
+				gAxes.Ctrl.MpCartAxis.MoveVelocity:=FALSE;
+				gAxes.Ctrl.MpPourerAxis.MoveVelocity:=FALSE;
 				gAxes.Ctrl.MpTransporterAxis.Stop:=FALSE;
 				gAxes.Ctrl.MpCartAxis.Stop:=FALSE;
 				gAxes.Ctrl.MpPourerAxis.Stop:=FALSE;
-				gAxes.Ctrl.MpTransporterAxis.MoveVelocity:=FALSE;
 				gAxes.State.Auto:=STATE_WAIT_FOR_CMD_AXES;
 			END_IF;
 		STATE_UPDATE_AXES:
@@ -215,7 +174,6 @@ PROGRAM _CYCLIC
 				gAxes.Ctrl.MpPourerAxis.Update:=FALSE;
 			END_IF;
 		STATE_MOVE_VELOCITY_AXES:
-			(* Chyba ¿e tu tdac ze ready  *)
 			gAxes.Ctrl.MpTransporterAxis.MoveVelocity:=TRUE;
 			gAxes.State.Auto:=STATE_WAIT_FOR_CMD_AXES;
 		STATE_ERROR_AXES:
@@ -223,7 +181,11 @@ PROGRAM _CYCLIC
 			gAxes.Ctrl.MpTransporterAxis.MoveVelocity:=FALSE;
 			gAxes.Ctrl.MpCartAxis.MoveVelocity:=FALSE;
 			gAxes.Ctrl.MpPourerAxis.MoveVelocity:=FALSE;
-//			IF gAxes.Ctrl.MpTransporterAxis.PowerOn THEN
+			gAxes.Ctrl.MpTransporterAxis.Power:=FALSE;
+			gAxes.Ctrl.MpCartAxis.Power:=FALSE;
+			gAxes.Ctrl.MpPourerAxis.Power:=FALSE;
+			
+			//			IF gAxes.Ctrl.MpTransporterAxis.PowerOn THEN
 //				gAxes.Ctrl.MpTransporterAxis.Stop:=TRUE;
 //			END_IF;
 //			
@@ -248,47 +210,31 @@ PROGRAM _CYCLIC
 //				gAxes.Ctrl.MpPourerAxis.Power:=FALSE;
 //			END_IF;
 			
-			(* Czekamy na przycisk reseterror *)
-//			IF EDGEPOS(gAxes.Cmd.Auto.ErrorReset) AND (NOT(gAxes.Ctrl.MpTransporterAxis.PowerOn) AND NOT(gAxes.Ctrl.MpCartAxis.PowerOn) AND NOT(gAxes.Ctrl.MpPourerAxis.PowerOn)) THEN
-//				gAxes.Cmd.Auto.ErrorReset:=FALSE;
-//				
-//				gAxes.Ctrl.MpTransporterAxis.ErrorReset:=TRUE;
-//				gAxes.Ctrl.MpCartAxis.ErrorReset:=TRUE;
-//				gAxes.Ctrl.MpPourerAxis.ErrorReset:=TRUE;		
-//				//gAxes.State.Auto:=WAIT_FOR_CMD;
-//			END_IF;
 			
+			(* Czekamy na cmd reseterror *)
 			IF EDGEPOS(gAxes.Cmd.Auto.ErrorReset) THEN
 				gAxes.Cmd.Auto.ErrorReset:=FALSE;
-				
 				gAxes.Ctrl.MpTransporterAxis.ErrorReset:=TRUE;
 				gAxes.Ctrl.MpCartAxis.ErrorReset:=TRUE;
-				gAxes.Ctrl.MpPourerAxis.ErrorReset:=TRUE;	
+				gAxes.Ctrl.MpPourerAxis.ErrorReset:=TRUE;
 				//power na false a pozniej true do sprawdzenia
 			END_IF;
-		
+			
+			(* Jeœli wszystkie b³êdy zosta³y usuniête mo¿emy przejœæ do stanu w kótrym czekamy na cmd *)
 			IF NOT(gAxes.Ctrl.MpTransporterAxis.Error) AND NOT(gAxes.Ctrl.MpCartAxis.Error) AND NOT(gAxes.Ctrl.MpPourerAxis.Error) THEN
 				gAxes.Ctrl.MpTransporterAxis.ErrorReset:=FALSE;
 				gAxes.Ctrl.MpCartAxis.ErrorReset:=FALSE;
 				gAxes.Ctrl.MpPourerAxis.ErrorReset:=FALSE;
-//				gAxes.Ctrl.MpTransporterAxis.Stop:=FALSE;
-//				gAxes.Ctrl.MpCartAxis.Stop:=FALSE;
-//				gAxes.Ctrl.MpPourerAxis.Stop:=FALSE;
+				
+
+				gAxes.Cmd.Auto.Power:=TRUE;
 				gAxes.State.Auto:=STATE_WAIT_FOR_CMD_AXES;
 			END_IF
 	END_CASE;
-	 
+	
+	(* Maszyna stanów, u³atwiaj¹ca zarz¹dzanie osiami w trybie manualnym *)
 	CASE gAxes.State.Manual OF
 		STATE_WAIT_FOR_CMD_MANUAL:
-//			gAxes.Ctrl.MpTransporterAxis.JogPositive:=gAxes.Cmd.Manual.TransporterJogPositive;
-//			gAxes.Ctrl.MpTransporterAxis.JogNegative:=gAxes.Cmd.Manual.TransporterJogNegative;
-//			
-//			gAxes.Ctrl.MpCartAxis.JogPositive:=gAxes.Cmd.Manual.CartJogPositive;
-//			gAxes.Ctrl.MpCartAxis.JogNegative:=gAxes.Cmd.Manual.CartJogNegative;
-//			
-//			gAxes.Ctrl.MpPourerAxis.JogPositive:=gAxes.Cmd.Manual.PourerJogPositive;
-//			gAxes.Ctrl.MpPourerAxis.JogNegative:=gAxes.Cmd.Manual.PourerJogNegative;
-		
 			IF EDGEPOS(gAxes.Cmd.Manual.TransporterHomming) THEN
 				gAxes.Cmd.Manual.TransporterHomming:=FALSE;
 				gAxes.State.Manual:=STATE_TRANSPORTER_HOMMING;
@@ -359,7 +305,7 @@ PROGRAM _CYCLIC
 	END_CASE;
 		
 	
-	
+	(* Aktualizacja pozycji zmiennych wykorzystywanych w scene viewer *)
 	MachineAxesPosition.Tasma:=gAxes.Ctrl.MpTransporterAxis.Position;
 	MachineAxesPosition.Wozek:=gAxes.Ctrl.MpCartAxis.Position;
 	MachineAxesPosition.Nalewak:=gAxes.Ctrl.MpPourerAxis.Position;;

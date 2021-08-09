@@ -1,6 +1,6 @@
 
 TYPE
-	gRecipeValuesType : STRUCT
+	gRecipeValuesType : 	STRUCT 
 		Velocity : REAL;
 		CamProfileIndex : UINT;
 		MasterCompDistance : REAL;

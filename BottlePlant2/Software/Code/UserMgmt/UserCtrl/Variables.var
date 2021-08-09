@@ -1,0 +1,8 @@
+
+VAR
+	UserCtrl : UserCtrlType;
+END_VAR
+
+VAR CONSTANT
+
+END_VAR

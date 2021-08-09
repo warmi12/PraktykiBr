@@ -1,0 +1,3 @@
+VAR
+	Machine :  MachineCtrlType;
+END_VAR

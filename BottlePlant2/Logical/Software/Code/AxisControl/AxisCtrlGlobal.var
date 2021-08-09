@@ -1,10 +1,5 @@
-
 VAR
 	gControlType : BOOL;
 	gAxes : gAxesCtrlType;
 	MachineAxesPosition : AxesPositionsType;
-END_VAR
-
-VAR CONSTANT
-
 END_VAR

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="DateTimeFormats">
+  <Property Name="Description" Value="Formats for Date and Time"/>
+  <Property Name="Index" Value="0"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="224261" Value="%m/%d/%Y %H:%M:%S"/>
+    <Text ID="224262" Value="%H:%M:%S"/>
+    <Text ID="224263" Value="%H:%M"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="224261" Value="%d.%m.%Y %H:%M:%S"/>
+    <Text ID="224262" Value="%H:%M:%S"/>
+    <Text ID="224263" Value="%H:%M"/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="224261" Value="0"/>
+    <Index ID="224262" Value="1"/>
+    <Index ID="224263" Value="2"/>
+  </IndexMap>
+</TextGroup>

@@ -25,6 +25,10 @@
           <Property ID="[4]" Value="NoAccess" />
         </Group>
       </Group>
+      <Group ID="DefGroup#3">
+        <Property ID="id" Value="Supervisor" />
+        <Property ID="level" Value="21" />
+      </Group>
     </Group>
     <Group ID="Users">
       <Group ID="DefUser#1">
@@ -37,6 +41,11 @@
       <Group ID="DefUser#2">
         <Property ID="id" Value="macko" />
         <Property ID="grp" Value="Operator" />
+        <Property ID="pwd" Value="12345" />
+      </Group>
+      <Group ID="DefUser#3">
+        <Property ID="id" Value="supervisor1" />
+        <Property ID="grp" Value="Supervisor" />
         <Property ID="pwd" Value="12345" />
       </Group>
     </Group>
