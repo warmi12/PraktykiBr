@@ -48,9 +48,11 @@ TYPE
 		uiCounterBottle : INT;
 		uiConfirm : BOOL;
 		uiRefuse : BOOL;
+		uiAlarmStatus : BOOL;
 	END_STRUCT;
 	
 	MachineCtrlType : 	STRUCT 
+		Timer : TON;
 		Status : STRING;
 		States : StatesType;
 		Cmd : CmdType;

@@ -236,6 +236,12 @@ PROGRAM _CYCLIC
 			gCamSequencer.Ctrl.MpAxisCamSequencer_0.EndSequence:=TRUE;
 			gCamSequencer.Ctrl.MpAxisCamSequencer_1.EndSequence:=TRUE;
 			
+			Machine.Timer.IN:=NOT(Machine.Timer.Q);
+			Machine.Timer.PT:=T#300ms;
+			Machine.Timer();
+			
+			Machine.GUI.uiAlarmStatus:=Machine.GUI.uiAlarmStatus XOR Machine.Timer.Q;
+			
 			IF EDGEPOS(Machine.Cmd.MachineCmd.ErrorReset)THEN
 				Machine.Cmd.MachineCmd.ErrorReset:=FALSE;
 				gAxes.Cmd.Auto.ErrorReset:=TRUE;
@@ -254,6 +260,9 @@ PROGRAM _CYCLIC
 			
 			(* jeœli nie ma b³êdów przejdz do odpowiedniego stanu *)
 			IF gAxes.State.Auto<>STATE_ERROR_AXES AND gCamSequencer.State<>STATE_ERROR_SEQUENCER THEN
+				Machine.GUI.uiAlarmStatus:=0;
+				Machine.Timer.IN:=FALSE;
+				Machine.Timer();
 				Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;
 			END_IF;
 	END_CASE;

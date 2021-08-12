@@ -30,6 +30,9 @@
     <Text ID="268520" Value="Transporter Status"/>
     <Text ID="268521" Value="Cart Status"/>
     <Text ID="268523" Value="Pourer Status"/>
+    <Text ID="271639" Value="AutoWork Status"/>
+    <Text ID="271640" Value="ManualWork Status"/>
+    <Text ID="271641" Value="Alarm Status"/>
   </TextLayer>
   <TextLayer LanguageId="de">
     <Text ID="236019" Value=""/>
@@ -57,6 +60,9 @@
     <Text ID="268520" Value=""/>
     <Text ID="268521" Value=""/>
     <Text ID="268523" Value=""/>
+    <Text ID="271639" Value=""/>
+    <Text ID="271640" Value=""/>
+    <Text ID="271641" Value=""/>
   </TextLayer>
   <IndexMap>
     <Index ID="236019" Value="0"/>
@@ -84,5 +90,8 @@
     <Index ID="268520" Value="22"/>
     <Index ID="268521" Value="23"/>
     <Index ID="268523" Value="24"/>
+    <Index ID="271639" Value="25"/>
+    <Index ID="271640" Value="26"/>
+    <Index ID="271641" Value="27"/>
   </IndexMap>
 </TextGroup>

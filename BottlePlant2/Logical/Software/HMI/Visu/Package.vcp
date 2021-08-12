@@ -501,6 +501,8 @@
     <Source File="ColorMaps\MpPMLStateColors.clm"/>
     <Source File="ColorMaps\MpEnergyChartData.clm"/>
     <Source File="ColorMaps\IsHommed.clm"/>
+    <Source File="ColorMaps\StatusAutoWork.clm"/>
+    <Source File="ColorMaps\StatusManualWork.clm"/>
     <Source File="VirtualKeys.vcvk"/>
     <Source File="Palette.vcr"/>
   </SourceFiles>
