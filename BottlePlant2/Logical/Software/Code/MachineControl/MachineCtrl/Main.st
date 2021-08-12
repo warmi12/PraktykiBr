@@ -226,7 +226,7 @@ PROGRAM _CYCLIC
 			(* aktualizacja prêdkoœci maszyny z poziomu gui, nie recipe *)
 			gAxes.Ctrl.MpTransporterAxisPar.Velocity:=uiBottlePerMinute;
 			uiBottlePerHour:=uiBottlePerMinute;
-			gRecipeValues[1].Velocity:=gAxes.Ctrl.MpTransporterAxisPar.Velocity;
+			gRecipeValues[2].Velocity:=gAxes.Ctrl.MpTransporterAxisPar.Velocity;
 	        gAxes.Cmd.Auto.Update:=TRUE;
 			Machine.States.MachineState:=STATE_WAIT_FOR_CMD_MACHINE;	
 		STATE_ERROR_MACHINE:

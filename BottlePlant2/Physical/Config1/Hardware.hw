@@ -14,6 +14,7 @@
       <Parameter ID="ActivateSnmp" Value="2" />
     </Connector>
     <Parameter ID="ConfigurationID" Value="BottlePlant2_Config1" />
+    <Parameter ID="Simulation" Value="1" />
     <Parameter ID="TimerDeviceType" Value="EPLX2X" />
     <Parameter ID="TimerDevice" Value="4PPC70_0702_20W.IF1" />
     <Parameter ID="TaskClassIdleTime" Value="2000" />
@@ -51,7 +52,7 @@
   </Module>
   <Module Name="8AC114.60-2b" Type="8AC114.60-2" Version="1.0.0.8">
     <Connection Connector="SS" TargetModule="8V1010.00-2b" TargetConnector="SS1" />
-    <Connection Connector="PLK1" TargetModule="8AC114.60-2a" TargetConnector="PLK2" NodeNumber="8">
+    <Connection Connector="PLK1" TargetModule="8AC114.60-2a" TargetConnector="PLK2" NodeNumber="9">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
   </Module>
@@ -66,6 +67,7 @@
   </Module>
   <Module Name="8V1010.00-2" Type="8V1010.00-2" Version="2.2.0.0">
     <Parameter ID="MotionTP" Value="Acp10Arnc0" />
+    <Parameter ID="Simulate" Value="standard" />
     <Parameter ID="PoweredBy" Value="DC" />
     <Parameter ID="ActiveMotorSimulation_r1" Value="on" />
     <Parameter ID="BothEndSwitchesAreNormallyOpen_r1" Value="on" />
@@ -73,6 +75,7 @@
   </Module>
   <Module Name="8V1010.00-2a" Type="8V1010.00-2" Version="2.2.0.0">
     <Parameter ID="MotionTP" Value="Acp10Arnc0" />
+    <Parameter ID="Simulate" Value="standard" />
     <Parameter ID="PoweredBy" Value="DC" />
     <Parameter ID="ActiveMotorSimulation_r1" Value="on" />
     <Parameter ID="BothEndSwitchesAreNormallyOpen_r1" Value="on" />
@@ -80,6 +83,7 @@
   </Module>
   <Module Name="8V1010.00-2b" Type="8V1010.00-2" Version="2.2.0.0">
     <Parameter ID="MotionTP" Value="Acp10Arnc0" />
+    <Parameter ID="Simulate" Value="standard" />
     <Parameter ID="PoweredBy" Value="DC" />
     <Parameter ID="ActiveMotorSimulation_r1" Value="on" />
     <Parameter ID="BothEndSwitchesAreNormallyOpen_r1" Value="on" />

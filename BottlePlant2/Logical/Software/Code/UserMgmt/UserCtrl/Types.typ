@@ -14,9 +14,7 @@ TYPE
 	END_STRUCT;
 	
 	UserDataType : STRUCT
-		UserName : WSTRING[20];
 		UserNameStr : STRING;
-		UserPasswd : WSTRING[20];
 	END_STRUCT;
 	
 END_TYPE

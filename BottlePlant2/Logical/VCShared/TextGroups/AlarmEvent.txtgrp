@@ -1,49 +1,49 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?AutomationStudio Version="4.10.2.37"?>
 <TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="AlarmEvent">
-  <Property Name="Description" Value="Texts for the event of an alarm - index  0-1 long, index 10-11 short" />
-  <Property Name="Index" Value="151" />
-  <TextSnippets />
+  <Property Name="Description" Value="Texts for the event of an alarm - index  0-1 long, index 10-11 short"/>
+  <Property Name="Index" Value="151"/>
+  <TextSnippets/>
   <TextLayer LanguageId="en">
-    <Text ID="224245" Value="Triggered" />
-    <Text ID="224246" Value="Reset" />
-    <Text ID="224247" Value="Bypassed" />
-    <Text ID="224248" Value="Not Bypassed" />
-    <Text ID="224249" Value="Reset Acknowledged" />
-    <Text ID="224250" Value="Achnowledged Reset" />
-    <Text ID="224251" Value="T" />
-    <Text ID="224252" Value="R" />
-    <Text ID="224253" Value="B" />
-    <Text ID="224254" Value="nB" />
-    <Text ID="224255" Value="RA" />
-    <Text ID="224256" Value="AR" />
+    <Text ID="224245" Value="Triggered"/>
+    <Text ID="224246" Value="Reset"/>
+    <Text ID="224247" Value="Bypassed"/>
+    <Text ID="224248" Value="Not Bypassed"/>
+    <Text ID="224249" Value="Reset Acknowledged"/>
+    <Text ID="224250" Value="Achnowledged Reset"/>
+    <Text ID="224251" Value="T"/>
+    <Text ID="224252" Value="R"/>
+    <Text ID="224253" Value="B"/>
+    <Text ID="224254" Value="nB"/>
+    <Text ID="224255" Value="RA"/>
+    <Text ID="224256" Value="AR"/>
   </TextLayer>
   <TextLayer LanguageId="de">
-    <Text ID="224245" Value="Gekommen" />
-    <Text ID="224246" Value="Gegangen" />
-    <Text ID="224247" Value="Gebrückt" />
-    <Text ID="224248" Value="Entbrückt" />
-    <Text ID="224249" Value="Resetiert Quittiert" />
-    <Text ID="224250" Value="Quittiert Resetiert" />
-    <Text ID="224251" Value="T" />
-    <Text ID="224252" Value="R" />
-    <Text ID="224253" Value="B" />
-    <Text ID="224254" Value="nB" />
-    <Text ID="224255" Value="RA" />
-    <Text ID="224256" Value="AR" />
+    <Text ID="224245" Value="Gekommen"/>
+    <Text ID="224246" Value="Gegangen"/>
+    <Text ID="224247" Value="Gebrückt"/>
+    <Text ID="224248" Value="Entbrückt"/>
+    <Text ID="224249" Value="Resetiert Quittiert"/>
+    <Text ID="224250" Value="Quittiert Resetiert"/>
+    <Text ID="224251" Value="T"/>
+    <Text ID="224252" Value="R"/>
+    <Text ID="224253" Value="B"/>
+    <Text ID="224254" Value="nB"/>
+    <Text ID="224255" Value="RA"/>
+    <Text ID="224256" Value="AR"/>
   </TextLayer>
   <IndexMap>
-    <Index ID="224245" Value="0" />
-    <Index ID="224246" Value="1" />
-    <Index ID="224247" Value="2" />
-    <Index ID="224248" Value="3" />
-    <Index ID="224249" Value="4" />
-    <Index ID="224250" Value="5" />
-    <Index ID="224251" Value="10" />
-    <Index ID="224252" Value="11" />
-    <Index ID="224253" Value="12" />
-    <Index ID="224254" Value="13" />
-    <Index ID="224255" Value="14" />
-    <Index ID="224256" Value="15" />
+    <Index ID="224245" Value="0"/>
+    <Index ID="224246" Value="1"/>
+    <Index ID="224247" Value="2"/>
+    <Index ID="224248" Value="3"/>
+    <Index ID="224249" Value="4"/>
+    <Index ID="224250" Value="5"/>
+    <Index ID="224251" Value="10"/>
+    <Index ID="224252" Value="11"/>
+    <Index ID="224253" Value="12"/>
+    <Index ID="224254" Value="13"/>
+    <Index ID="224255" Value="14"/>
+    <Index ID="224256" Value="15"/>
   </IndexMap>
 </TextGroup>

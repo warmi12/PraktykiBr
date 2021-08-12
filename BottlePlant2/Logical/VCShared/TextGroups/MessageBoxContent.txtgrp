@@ -1,31 +1,31 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?AutomationStudio Version="4.10.2.37"?>
 <TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MessageBoxContent">
-  <Property Name="Description" Value="" />
-  <Property Name="Index" Value="5" />
-  <TextSnippets />
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="5"/>
+  <TextSnippets/>
   <TextLayer LanguageId="en">
-    <Text ID="227159" Value="Homming done!" />
-    <Text ID="233113" Value="To switch to manual mode, you must stop the machine" />
-    <Text ID="236131" Value="You need to load a recipe to start the machine" />
-    <Text ID="254301" Value="You cannot log out while the machine is running" />
-    <Text ID="254320" Value="Are you sure you want to log out?" />
-    <Text ID="257397" Value="Axes error, see alarms for more information" />
+    <Text ID="227159" Value="Homming done!"/>
+    <Text ID="233113" Value="To switch to manual mode, you must stop the machine"/>
+    <Text ID="236131" Value="You need to load a recipe to start the machine"/>
+    <Text ID="254301" Value="You cannot log out while the machine is running"/>
+    <Text ID="254320" Value="Are you sure you want to log out?"/>
+    <Text ID="257397" Value="Axes error, see alarms for more information"/>
   </TextLayer>
   <TextLayer LanguageId="de">
-    <Text ID="227159" Value="" />
-    <Text ID="233113" Value="" />
-    <Text ID="236131" Value="" />
-    <Text ID="254301" Value="" />
-    <Text ID="254320" Value="" />
-    <Text ID="257397" Value="" />
+    <Text ID="227159" Value=""/>
+    <Text ID="233113" Value=""/>
+    <Text ID="236131" Value=""/>
+    <Text ID="254301" Value=""/>
+    <Text ID="254320" Value=""/>
+    <Text ID="257397" Value=""/>
   </TextLayer>
   <IndexMap>
-    <Index ID="227159" Value="0" />
-    <Index ID="233113" Value="1" />
-    <Index ID="236131" Value="2" />
-    <Index ID="254301" Value="3" />
-    <Index ID="254320" Value="4" />
-    <Index ID="257397" Value="5" />
+    <Index ID="227159" Value="0"/>
+    <Index ID="233113" Value="1"/>
+    <Index ID="236131" Value="2"/>
+    <Index ID="254301" Value="3"/>
+    <Index ID="254320" Value="4"/>
+    <Index ID="257397" Value="5"/>
   </IndexMap>
 </TextGroup>

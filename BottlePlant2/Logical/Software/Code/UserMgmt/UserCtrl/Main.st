@@ -16,10 +16,8 @@ PROGRAM _CYCLIC
 	UserCtrl.UserManagerUI.UIConnect:=ADR(UserCtrl.UserManagerUIConnect);
 	UserCtrl.UserManagerUI.UISetup:=UserCtrl.UserManagerUISetup;
 	
-	UserCtrl.Login.UserName:=ADR(UserCtrl.UserData.UserName);
-	UserCtrl.Login.Password:=ADR(UserCtrl.UserData.UserPasswd);
-	gCurrentUser:=UserCtrl.Login.CurrentLevel;
-	UserCtrl.Login.Logout:=gLogOutUser; // przekazanie lvl do g³ownego programu
+	gCurrentUser:=UserCtrl.Login.CurrentLevel; // przekazanie lvl do g³ownego programu
+	UserCtrl.Login.Logout:=gLogOutUser; //przekazanie z machineCtrl zmiennej która ustawia wylogowanie na TRUE
 	UserCtrl.UserData.UserNameStr:=WSTRING_TO_STRING(UserCtrl.Login.CurrentUser);
 	UserCtrl.Login();
 	UserCtrl.LoginUI();	 

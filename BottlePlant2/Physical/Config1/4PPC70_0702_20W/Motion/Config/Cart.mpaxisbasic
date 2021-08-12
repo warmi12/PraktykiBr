@@ -4,11 +4,11 @@
   <Element ID="gCartAxisCfg" Type="mpaxisbasic">
     <Selector ID="AxisConfiguration" Value="AxisWithConfiguration">
       <Group ID="Axis">
-        <Property ID="BaseType" Value="0" />
+        <Property ID="BaseType" Value="4" />
         <Property ID="MeasurementUnit" Value="1" />
-        <Group ID="SoftwareLimitPositions">
-          <Property ID="LowerLimit" Value="-100.0" />
-          <Property ID="UpperLimit" Value="450.0" />
+        <Group ID="MovementLimits">
+          <Property ID="Acceleration" Value="50000.0" />
+          <Property ID="Deceleration" Value="50000.0" />
         </Group>
       </Group>
       <Group ID="Drive">

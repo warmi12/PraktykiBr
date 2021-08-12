@@ -185,32 +185,6 @@ PROGRAM _CYCLIC
 			gAxes.Ctrl.MpCartAxis.Power:=FALSE;
 			gAxes.Ctrl.MpPourerAxis.Power:=FALSE;
 			
-			//			IF gAxes.Ctrl.MpTransporterAxis.PowerOn THEN
-//				gAxes.Ctrl.MpTransporterAxis.Stop:=TRUE;
-//			END_IF;
-//			
-//			IF gAxes.Ctrl.MpCartAxis.PowerOn THEN
-//				gAxes.Ctrl.MpCartAxis.Stop:=TRUE;
-//			END_IF;
-//			
-//			IF gAxes.Ctrl.MpPourerAxis.PowerOn THEN
-//				gAxes.Ctrl.MpPourerAxis.Stop:=TRUE;
-//			END_IF;
-//			
-//			(* Jesli sa zastopowane to power off  *)
-//			IF gAxes.Ctrl.MpTransporterAxis.Stopped THEN
-//				gAxes.Ctrl.MpTransporterAxis.Power:=FALSE;
-//			END_IF;
-//			
-//			IF gAxes.Ctrl.MpCartAxis.Stopped THEN
-//				gAxes.Ctrl.MpCartAxis.Power:=FALSE;
-//			END_IF;
-//			
-//			IF gAxes.Ctrl.MpPourerAxis.Stopped THEN
-//				gAxes.Ctrl.MpPourerAxis.Power:=FALSE;
-//			END_IF;
-			
-			
 			(* Czekamy na cmd reseterror *)
 			IF EDGEPOS(gAxes.Cmd.Auto.ErrorReset) THEN
 				gAxes.Cmd.Auto.ErrorReset:=FALSE;
@@ -226,7 +200,6 @@ PROGRAM _CYCLIC
 				gAxes.Ctrl.MpCartAxis.ErrorReset:=FALSE;
 				gAxes.Ctrl.MpPourerAxis.ErrorReset:=FALSE;
 				
-
 				gAxes.Cmd.Auto.Power:=TRUE;
 				gAxes.State.Auto:=STATE_WAIT_FOR_CMD_AXES;
 			END_IF

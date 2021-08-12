@@ -412,6 +412,7 @@
     <Source File="Pages\Recipe.page"/>
     <Source File="Pages\ManualPage.page"/>
     <Source File="Pages\UserControl.page"/>
+    <Source File="Pages\EditRecipe.page"/>
     <Source File="Layers\PageInitControl.layer"/>
     <Source File="Layers\Background.layer"/>
     <Source File="Layers\MpOeeControl.layer"/>
@@ -499,6 +500,7 @@
     <Source File="Trends\MpOeeTrendUI.tre"/>
     <Source File="ColorMaps\MpPMLStateColors.clm"/>
     <Source File="ColorMaps\MpEnergyChartData.clm"/>
+    <Source File="ColorMaps\IsHommed.clm"/>
     <Source File="VirtualKeys.vcvk"/>
     <Source File="Palette.vcr"/>
   </SourceFiles>

@@ -6,10 +6,6 @@
       <Group ID="Axis">
         <Property ID="BaseType" Value="0" />
         <Property ID="MeasurementUnit" Value="1" />
-        <Group ID="SoftwareLimitPositions">
-          <Property ID="LowerLimit" Value="-20" />
-          <Property ID="UpperLimit" Value="280" />
-        </Group>
         <Group ID="PeriodSettings">
           <Property ID="Period" Value="360" />
         </Group>

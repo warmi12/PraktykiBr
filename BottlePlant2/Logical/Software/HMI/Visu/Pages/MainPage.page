@@ -401,6 +401,37 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="121"/>
         </Control>
+        <Control ClassId="0x00001007" Name="Numeric_6">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="Input" Value="True"/>
+          <Property Name="InputCancel" Value="Lost Focus"/>
+          <Property Name="InputComma" Value="Explicit"/>
+          <Property Name="InputConfirm" Value="Enter"/>
+          <Property Name="InputMinus" Value="Normal"/>
+          <Property Name="InputNext" Value="Enter"/>
+          <Property Name="InputStart" Value="Any Key"/>
+          <Property Name="InputTouchpad" Value="Source[local].TouchPad[MpNumPad]"/>
+          <Property Name="InputUpDown" Value="Disabled"/>
+          <Property Name="Left" Value="184"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="200"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="1.66666666666667"/>
+          <Property Name="SimulationValue" Value="416.666666666667"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="282"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Software.Code.RecipeControl.uiBottlePerMinute]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="121"/>
+        </Control>
       </Controls>
       <KeyMapping>
         <VirtualKey Name="%embVirtualKey_1_2">
@@ -559,6 +590,12 @@
   </Layers>
   <MovementOrder>
     <MovementEntry Control="Source[embedded].Layer[Default1].Control[Numeric_1]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default1].Control[Numeric_6]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default1].Control[Numeric_6]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default1].Control[Numeric_6]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default1].Control[Numeric_6]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default1].Control[Numeric_6]">
       <Property Name="Down" Value="Source[embedded].Layer[Default1].Control[Numeric_1]"/>
       <Property Name="Left" Value="Source[embedded].Layer[Default1].Control[Numeric_1]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default1].Control[Numeric_1]"/>
@@ -573,5 +610,6 @@
     <TabSeqItem Index="4" Value="Source[embedded].Layer[Default1].Control[Numeric_3]"/>
     <TabSeqItem Index="5" Value="Source[embedded].Layer[Default1].Control[Numeric_4]"/>
     <TabSeqItem Index="6" Value="Source[embedded].Layer[Default1].Control[Numeric_5]"/>
+    <TabSeqItem Index="7" Value="Source[embedded].Layer[Default1].Control[Numeric_6]"/>
   </TabSequence>
 </Page>

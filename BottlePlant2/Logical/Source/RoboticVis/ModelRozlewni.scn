@@ -4,9 +4,9 @@
 	<ParID parid="81" val="60"/>
 	<ParID parid="82" val="1"/>
 	<ParID parid="90" val="0"/>
-	<ParID parid="100" val="93.6128"/>
-	<ParID parid="101" val="-856.61"/>
-	<ParID parid="102" val="1200"/>
+	<ParID parid="100" val="113.613"/>
+	<ParID parid="101" val="-256.61"/>
+	<ParID parid="102" val="1220"/>
 	<ParID parid="103" val="-2.98023e-08"/>
 	<ParID parid="104" val="1"/>
 	<ParID parid="105" val="0"/>
@@ -67,7 +67,7 @@
 		</Object>
 	</Object>
 	<Object objecttypeid="190" name="NapedTasmociagu" visible="1" mask="#150:0" binding="#100*::RobVis:RobVisData.Tasma" jointoparent="0">
-		<ParID parid="100" val="1520.89"/>
+		<ParID parid="100" val="7"/>
 		<ParID parid="101" val="150"/>
 		<ParID parid="102" val="980"/>
 		<ParID parid="103" val="0"/>
@@ -892,7 +892,7 @@
 		</Object>
 	</Object>
 	<Object objecttypeid="190" name="NapedWozka" visible="1" mask="#150:4" binding="#100*::RobVis:RobVisData.Wozek" jointoparent="0">
-		<ParID parid="100" val="39.99"/>
+		<ParID parid="100" val="0"/>
 		<ParID parid="101" val="185"/>
 		<ParID parid="102" val="1300"/>
 		<ParID parid="103" val="0"/>
@@ -938,7 +938,7 @@
 			<Object objecttypeid="190" name="NapedNalewakow" visible="1" mask="#150:8" binding="#102*::RobVis:RobVisData.Nalewak" jointoparent="0">
 				<ParID parid="100" val="0"/>
 				<ParID parid="101" val="12"/>
-				<ParID parid="102" val="92.95"/>
+				<ParID parid="102" val="0"/>
 				<ParID parid="103" val="0"/>
 				<ParID parid="104" val="0"/>
 				<ParID parid="105" val="180"/>
@@ -964,7 +964,7 @@
 				<Object objecttypeid="110" name="Nalewak.STL" visible="1" mask="" binding="" jointoparent="0">
 					<ParID parid="100" val="0"/>
 					<ParID parid="101" val="0"/>
-					<ParID parid="102" val="0"/>
+					<ParID parid="102" val="-60"/>
 					<ParID parid="103" val="0"/>
 					<ParID parid="104" val="0"/>
 					<ParID parid="105" val="0"/>

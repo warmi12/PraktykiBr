@@ -1,5 +1,5 @@
 VAR
-	gControlType : BOOL;
 	gAxes : gAxesCtrlType;
+	(* zmienna wykorzystywana do przekazywania pozycji do scene viewera *)
 	MachineAxesPosition : AxesPositionsType;
 END_VAR

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<NcMapping NcSwId="Acp10">
-  <NcObject Name="gTranAxis" ModuleId="8V1010.00-2" Type="ncAXIS" Channel="1" AcoposSimulation="Off" InitParameter="gTranAxisi" AcoposParameter="gTranAxisa" Disabled="FALSE" ModuleDisabled="FALSE" />
+<NcMapping NcSwId="Acp10" DisabledNodesAreHidden="False">
+  <NcObject Name="gTranAxis" ModuleId="8V1010.00-2" Type="ncAXIS" Channel="1" AcoposSimulation="Standard" InitParameter="gTranAxisi" AcoposParameter="gTranAxisa" Disabled="FALSE" ModuleDisabled="FALSE" />
   <NcObject Name="8V1010.00-2_ncV_AXIS1" ModuleId="8V1010.00-2" Type="ncV_AXIS" Channel="1" Disabled="TRUE" ModuleDisabled="FALSE" />
-  <NcObject Name="gCartAxis" ModuleId="8V1010.00-2a" Type="ncAXIS" Channel="1" AcoposSimulation="Off" InitParameter="gCartAxisi" AcoposParameter="gCartAxisa" Disabled="FALSE" ModuleDisabled="FALSE" />
+  <NcObject Name="gCartAxis" ModuleId="8V1010.00-2a" Type="ncAXIS" Channel="1" AcoposSimulation="Standard" InitParameter="gCartAxisi" AcoposParameter="gCartAxisa" Disabled="FALSE" ModuleDisabled="FALSE" />
   <NcObject Name="8V1010.00-2a_ncV_AXIS1" ModuleId="8V1010.00-2a" Type="ncV_AXIS" Channel="1" Disabled="TRUE" ModuleDisabled="FALSE" />
-  <NcObject Name="gPourAxis" ModuleId="8V1010.00-2b" Type="ncAXIS" Channel="1" AcoposSimulation="Off" InitParameter="gPourAxisi" AcoposParameter="gPourAxisa" Disabled="FALSE" ModuleDisabled="FALSE" />
+  <NcObject Name="gPourAxis" ModuleId="8V1010.00-2b" Type="ncAXIS" Channel="1" AcoposSimulation="Standard" InitParameter="gPourAxisi" AcoposParameter="gPourAxisa" Disabled="FALSE" ModuleDisabled="FALSE" />
   <NcObject Name="8V1010.00-2b_ncV_AXIS1" ModuleId="8V1010.00-2b" Type="ncV_AXIS" Channel="1" Disabled="TRUE" ModuleDisabled="FALSE" />
 </NcMapping>

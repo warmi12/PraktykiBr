@@ -1,25 +1,25 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?AutomationStudio Version="4.10.2.37"?>
 <TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="AlarmState">
-  <Property Name="Description" Value="Texts for alarm state - index 0-1 long, index 10-11 short" />
-  <Property Name="Index" Value="150" />
-  <TextSnippets />
+  <Property Name="Description" Value="Texts for alarm state - index 0-1 long, index 10-11 short"/>
+  <Property Name="Index" Value="150"/>
+  <TextSnippets/>
   <TextLayer LanguageId="en">
-    <Text ID="224257" Value="Inactive" />
-    <Text ID="224258" Value="Active" />
-    <Text ID="224259" Value="0" />
-    <Text ID="224260" Value="1" />
+    <Text ID="224257" Value="Inactive"/>
+    <Text ID="224258" Value="Active"/>
+    <Text ID="224259" Value="0"/>
+    <Text ID="224260" Value="1"/>
   </TextLayer>
   <TextLayer LanguageId="de">
-    <Text ID="224257" Value="Inaktiv" />
-    <Text ID="224258" Value="Aktiv" />
-    <Text ID="224259" Value="0" />
-    <Text ID="224260" Value="1" />
+    <Text ID="224257" Value="Inaktiv"/>
+    <Text ID="224258" Value="Aktiv"/>
+    <Text ID="224259" Value="0"/>
+    <Text ID="224260" Value="1"/>
   </TextLayer>
   <IndexMap>
-    <Index ID="224257" Value="0" />
-    <Index ID="224258" Value="1" />
-    <Index ID="224259" Value="10" />
-    <Index ID="224260" Value="11" />
+    <Index ID="224257" Value="0"/>
+    <Index ID="224258" Value="1"/>
+    <Index ID="224259" Value="10"/>
+    <Index ID="224260" Value="11"/>
   </IndexMap>
 </TextGroup>

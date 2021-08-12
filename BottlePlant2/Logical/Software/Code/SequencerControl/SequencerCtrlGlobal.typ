@@ -3,7 +3,7 @@ TYPE
 	gCamSequencerStateType : 
 		(
 		STATE_ERROR_SEQUENCER := 1,
-		STATE_WAIT_FOR_CMD_SEQUENCER := 0
+		STATE_WORK_SEQUENCER := 0
 		);
 	gCamSequencerCmdType : 	STRUCT 
 		ErrorReset : BOOL;
@@ -12,6 +12,7 @@ TYPE
 		Ctrl : gCamSequencerBasicCtrlType;
 		State : gCamSequencerStateType;
 		Cmd : gCamSequencerCmdType;
+		DoPourer : BOOL;
 	END_STRUCT;
 	gCamSequencerBasicCtrlType : 	STRUCT 
 		MpAxisCamSequencer_0 : MpAxisCamSequencer;

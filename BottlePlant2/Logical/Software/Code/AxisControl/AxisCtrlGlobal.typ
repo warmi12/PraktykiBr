@@ -1,6 +1,7 @@
 (* AutoAxis *)
 
 TYPE
+	(* G³ówny typ zawieraj¹cy inne typy *)
 	gAxesCtrlType : 	STRUCT 
 		Ctrl : gAxisBasicCtrlType;
 		Cmd : gCmdType;
@@ -8,6 +9,7 @@ TYPE
 		Timers : gTimersType;
 		TimersPar : gTimersParType;
 	END_STRUCT;
+	(* Typ zawieraj¹cy bloki mpAxisBasic *)
 	gAxisBasicCtrlType : 	STRUCT 
 		MpTransporterAxis : MpAxisBasic;
 		MpTransporterAxisPar : MpAxisBasicParType;
@@ -16,10 +18,12 @@ TYPE
 		MpPourerAxis : MpAxisBasic;
 		MpPourerAxisPar : MpAxisBasicParType;
 	END_STRUCT;
+	(* G³ówny typ komend  *)
 	gCmdType : 	STRUCT 
 		Auto : gAutoCmdType;
 		Manual : gManualCmdType;
 	END_STRUCT;
+	(* Typ zawieraj¹cy komendy steruj¹cy silnikami w trybie automatycznym *)
 	gAutoCmdType : 	STRUCT 
 		Power : BOOL;
 		Home : BOOL;
@@ -28,6 +32,7 @@ TYPE
 		ErrorReset : BOOL;
 		MoveVelocity : BOOL;
 	END_STRUCT;
+	(* Typ zawieraj¹cy komdendy do sterowania manualnego *)
 	gManualCmdType : 	STRUCT 
 		TransporterHomming : BOOL;
 		CartHomming : BOOL;
@@ -39,6 +44,7 @@ TYPE
 	gTimersParType : 	STRUCT 
 		HomeDelayTime : REAL := 5;
 	END_STRUCT;
+	(* G³ówny typ zawieraj¹cy stany do maszyn *)
 	gStateType : 	STRUCT 
 		Auto : gAutoAxisStateType;
 		Manual : gManualAxisStateType;
