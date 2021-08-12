@@ -12,7 +12,6 @@ TYPE
 		Ctrl : gCamSequencerBasicCtrlType;
 		State : gCamSequencerStateType;
 		Cmd : gCamSequencerCmdType;
-		DoPourer : BOOL;
 	END_STRUCT;
 	gCamSequencerBasicCtrlType : 	STRUCT 
 		MpAxisCamSequencer_0 : MpAxisCamSequencer;

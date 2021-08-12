@@ -166,15 +166,23 @@ PROGRAM _CYCLIC
 			gRecipeValues[4].Velocity:=Recipe.RecipeEdit.BottlePerMinute;
 			gRecipeValues[4].MasterFactor:=REAL_TO_DINT(Recipe.RecipeEdit.Distance3)*100;
 			gRecipeValues[4].SlaveFactor:=REAL_TO_DINT(-Recipe.RecipeEdit.Height3)*100;
+		
+			Recipe.RecipeUIConnect.Recipe.Save:=TRUE;
+			Recipe.RecipeUIConnect.Recipe.Refresh:=FALSE;
+			IF Recipe.RecipeUIConnect.MessageBox.LayerStatus=0 THEN
+				Recipe.RecipeUIConnect.Recipe.Save:=FALSE;
+				Recipe.State:=STATE_WAIT_RECIPE;
+			END_IF;
+			
 			
 			(* Do zrobienia zapamietanie indexu zaznaczonego poniewaz po zapisie wybrany index wraca na 0 *)
 			(* Tez popup *) (* albo dorobiæ zeby wychodzu³o i tyle i popup ze nalezy wczytac  *)
-			Recipe.RecipeXml.FileName:=ADR(Recipe.RecipeUIConnect.Recipe.List.Names[Recipe.RecipeUIConnect.Recipe.List.SelectedIndex]);
-			Recipe.RecipeXml.Save:=TRUE;
-			IF Recipe.RecipeXml.CommandDone THEN
-				Recipe.RecipeXml.Save:=FALSE;
-				Recipe.State:=STATE_WAIT_RECIPE;
-			END_IF;
+//			Recipe.RecipeXml.FileName:=ADR(Recipe.RecipeUIConnect.Recipe.List.Names[Recipe.RecipeUIConnect.Recipe.List.SelectedIndex]);
+//			Recipe.RecipeXml.Save:=TRUE;
+//			IF Recipe.RecipeXml.CommandDone THEN
+//				Recipe.RecipeXml.Save:=FALSE;
+//				Recipe.State:=STATE_WAIT_RECIPE;
+//			END_IF;
 	END_CASE;
 	
 	Recipe.RecipeXml();

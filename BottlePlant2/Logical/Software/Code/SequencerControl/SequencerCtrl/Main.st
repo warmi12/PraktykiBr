@@ -146,9 +146,9 @@ PROGRAM _CYCLIC
 			END_IF;
 			
 			IF gAxes.Ctrl.MpTransporterAxis.MoveActive AND (gCamSequencer.Ctrl.MpAxisCamSequencer_1.ActualStateIndex=2 OR gCamSequencer.Ctrl.MpAxisCamSequencer_1.ActualStateIndex=3) THEN
-				gCamSequencer.DoPourer:=TRUE;
+				DoPourer:=TRUE;
 			ELSE
-				gCamSequencer.DoPourer:=FALSE;
+				DoPourer:=FALSE;
 			END_IF
 		STATE_ERROR_SEQUENCER:
 			IF EDGEPOS(gCamSequencer.Cmd.ErrorReset) THEN

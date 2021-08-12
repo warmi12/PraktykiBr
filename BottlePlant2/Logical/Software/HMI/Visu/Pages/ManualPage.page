@@ -123,7 +123,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Software.Code.SequencerControl.gCamSequencer.DoPourer]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Software.Code.SequencerControl.SequencerCtrl.DoPourer]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

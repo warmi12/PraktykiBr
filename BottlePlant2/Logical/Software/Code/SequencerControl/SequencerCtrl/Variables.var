@@ -1,6 +1,6 @@
 
 VAR
-
+	DoPourer : BOOL;
 END_VAR
 
 VAR CONSTANT

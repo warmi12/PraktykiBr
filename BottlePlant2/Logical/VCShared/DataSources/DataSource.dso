@@ -18994,9 +18994,9 @@
         <Folder Name="SequencerControl">
           <Property Name="Description" Value=""/>
           <Property Name="FolderType" Value="Package"/>
-          <Folder Name="gCamSequencer">
+          <Folder Name="SequencerCtrl">
             <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
+            <Property Name="FolderType" Value="Program"/>
             <DataPoint Name="DoPourer">
               <Property Name="ConnectedBySharedResource" Value="False"/>
               <Property Name="ConnectingVisus" Value="Software\HMI\Visu"/>
